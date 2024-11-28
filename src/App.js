@@ -15,6 +15,8 @@ function App() {
     <Navbar/>  
     <Home/>
     <ProductOverview/>
+    <Payment/>
+    <Footer/>
 
       
     </>
