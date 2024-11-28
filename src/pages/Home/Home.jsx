@@ -21,7 +21,7 @@ function Home() {
             <Categories />
             <Carousel />
             <ProductCards />
-            <Reviews />
+            <Reviews /><br></br><br></br>
             <Footer/>
 
         </>

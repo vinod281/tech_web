@@ -6,6 +6,7 @@ import { FaIconName } from 'react-icons/fa';
 import ShoppingCartOutlined from '@mui/icons-material/ShoppingCartOutlined';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cart from '../Cart/Cart';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -35,6 +36,18 @@ export default function Navbar() {
     { name: 'Storage', subItems: ['USB Drives', 'Hard Drives', 'Memory Cards'] },
   ];
 
+  const navigate = useNavigate(); // Initialize navigate
+
+    const handleLoginClick = () => {
+        navigate('/login'); // Navigate to the login page
+    };
+
+    const handleHomeClick = () => {
+      navigate('/home'); // Navigate to the login page
+  };
+  
+  
+
   return (
     <div>
       {/* Top Bar */}
@@ -43,7 +56,7 @@ export default function Navbar() {
           365 day returns AND free shipping On Orders over $100 for sonic club members
         </div>
         <div className="space-x-6">
-          <a href="#home" className="text-white hover:text-gray-400">Home</a>
+          <a href="/" className="text-white hover:text-gray-400">Home</a>
           <a href="#contact" className="text-white hover:text-gray-400">Contact</a>
           <a href="#about" className="text-white hover:text-gray-400">About</a>
         </div>
@@ -53,7 +66,7 @@ export default function Navbar() {
       <nav className="p-4 bg-white shadow-lg">
         <div className="container flex items-center justify-between mx-auto">
           {/* Logo */}
-          <div className="text-2xl font-bold text-gray-800">TechStore</div>
+          <div className="text-2xl font-bold text-gray-800 cursor-pointer"  onClick={handleHomeClick}>TechStore</div>
 
           {/* Search Bar */}
           <div className="flex items-center w-full max-w-3xl space-x-2">
@@ -80,7 +93,7 @@ export default function Navbar() {
             <button className="text-gray-600">
               <i className="fa-regular fa-user"></i>
             </button>
-            <button className="px-4 py-2 text-white bg-gray-900 rounded hover:bg-gray-800">
+            <button className="px-4 py-2 text-white bg-gray-900 rounded hover:bg-gray-800" onClick={handleLoginClick}>
               Login
             </button>
           </div>
