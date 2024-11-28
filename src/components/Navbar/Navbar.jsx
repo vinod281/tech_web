@@ -5,11 +5,20 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { FaIconName } from 'react-icons/fa';
 import ShoppingCartOutlined from '@mui/icons-material/ShoppingCartOutlined';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Cart from '../Cart/Cart';
 
 
 
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const [cartOpen, setCartOpen] = useState(false);
+    const [cartKey, setCartKey] = useState(0); 
+
+    const handleOpenCart = () => {
+        setCartKey((prevKey) => prevKey + 1); 
+        setCartOpen(true); 
+    };
 
   const handleDropdownToggle = (category) => {
     setActiveDropdown((prev) => (prev === category ? null : category));
@@ -60,9 +69,14 @@ export default function Navbar() {
 
           {/* Cart, User Icon, and Login Button */}
           <div className="flex items-center ml-4 space-x-4">
-            <button className="text-gray-600">
-              <ShoppingCartOutlinedIcon />
-            </button>
+            <div>
+
+            <button onClick={handleOpenCart} className="text-gray-600">
+                    <ShoppingCartOutlinedIcon />
+                </button>
+            </div>
+                {cartOpen && <Cart key={cartKey} open={cartOpen} setOpen={setCartOpen} />}
+            
             <button className="text-gray-600">
               <i className="fa-regular fa-user"></i>
             </button>
