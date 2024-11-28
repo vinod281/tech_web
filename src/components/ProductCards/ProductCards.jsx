@@ -159,7 +159,7 @@ const ProductCards = () => {
             </div>
 
             {notificationMessage && (
-                <Notification message={notificationMessage} action={"Cart Updated."} onClose={() => setNotificationMessage(null)} />
+                <Notification message={notificationMessage} action={"Your Cart Updated."} onClose={() => setNotificationMessage(null)} />
             )}
         </>
     );
