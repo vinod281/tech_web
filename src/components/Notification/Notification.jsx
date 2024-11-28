@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Notification() {
+function Notification({ message, action}) {
   const [show, setShow] = useState(true);
 
   useEffect (() => {
@@ -32,9 +32,9 @@ function Notification() {
           </div>
 
           <div className="ml-3">
-            <h3 className="text-sm font-medium text-gray-900">Successfully saved!</h3>
+            <h3 className="text-sm font-medium text-gray-900">{action}</h3>
             <p className="text-sm text-gray-500">
-              Anyone with a link can now view this file.
+              {message}
             </p>
           </div>
 

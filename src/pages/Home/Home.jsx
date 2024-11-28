@@ -10,11 +10,11 @@ import { useState } from 'react';
 function Home() {
 
     const [cartOpen, setCartOpen] = useState(false);
-    const [cartKey, setCartKey] = useState(0); // State to force reloading of Cart
+    const [cartKey, setCartKey] = useState(0); 
 
     const handleOpenCart = () => {
-        setCartKey((prevKey) => prevKey + 1); // Increment key to remount Cart
-        setCartOpen(true); // Open Cart dialog
+        setCartKey((prevKey) => prevKey + 1); 
+        setCartOpen(true); 
     };
 
     return (
@@ -33,7 +33,7 @@ function Home() {
                 {cartOpen && <Cart key={cartKey} open={cartOpen} setOpen={setCartOpen} />}
             </div>
 
-            {/* Other Components */}
+            
             <Categories />
             <Carousel />
             <ProductCards />

@@ -1,5 +1,4 @@
 import './App.css';
-import Notification from './components/Notification/Notification';
 import Home from './pages/Home/Home';
 import ProductOverview from './pages/ProductOverview/ProductOverview';
 
@@ -13,7 +12,7 @@ function App() {
     <Home/>
     <ProductOverview/>
 
-    <Notification/>
+    
       
     </>
   );
