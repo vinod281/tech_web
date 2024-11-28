@@ -38,7 +38,7 @@ function Home() {
             <Carousel />
             <ProductCards />
             <Reviews />
-           
+            <Reviews />
 
         </>
     )
