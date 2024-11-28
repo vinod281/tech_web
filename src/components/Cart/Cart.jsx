@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-export default function Cart({ open, setOpen}) {
+export default function Cart({ open, setOpen }) {
     const [products, setProducts] = useState([]);
 
-    
+
 
     // Load cart items from localStorage initially
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function Cart({ open, setOpen}) {
         };
     }, []);
 
-    
+
 
     // Remove item from the cart
     const handleRemoveItem = (id) => {
@@ -125,9 +125,10 @@ export default function Cart({ open, setOpen}) {
                                                 RS{' '}
                                                 {products
                                                     .reduce((total, item) => {
-                                                        const price = parseFloat(
-                                                            item.price.replace(/[^0-9]/g, '')
-                                                        );
+                                                        
+                                                        const price = item.price
+                                                            ? parseFloat(item.price.replace(/[^0-9]/g, ''))
+                                                            : 0; 
                                                         return total + price * item.quantity;
                                                     }, 0)
                                                     .toFixed(2)}
