@@ -12,6 +12,7 @@ function App() {
 
   return (
     <>
+
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
@@ -19,6 +20,7 @@ function App() {
       <Route path='/login' element={<Login/>}></Route>
     </Routes>
     </BrowserRouter>
+
 
     
     
