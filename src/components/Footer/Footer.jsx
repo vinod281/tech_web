@@ -3,6 +3,10 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 're
 
 export default function Footer() {
   return (
+
+    <>
+    
+  
     <footer className="py-10 bg-gray-50">
       <div className="container grid grid-cols-1 gap-6 mx-auto text-center sm:grid-cols-2 md:grid-cols-4 md:text-left">
         {/* Logo and Description */}
@@ -31,7 +35,7 @@ export default function Footer() {
             </button>
           </form>
           <p className="mt-2 text-xs text-gray-400">
-            By subscribing, you agree to our <a href="#" className="underline">Terms and Conditions</a>.
+            By subscribing, you agree to our <a href="/" className="underline">Terms and Conditions</a>.
           </p>
         </div>
 
@@ -41,11 +45,11 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-bold">About Us</h3>
             <ul className="space-y-3 text-gray-500">
-              <li><a href="#" className="hover:underline">Contact Us</a></li>
-              <li><a href="#" className="hover:underline">FAQs</a></li>
-              <li><a href="#" className="hover:underline">Support</a></li>
-              <li><a href="#" className="hover:underline">Terms</a></li>
-              <li><a href="#" className="hover:underline">Privacy</a></li>
+              <li><a href="/" className="hover:underline">Contact Us</a></li>
+              <li><a href="/" className="hover:underline">FAQs</a></li>
+              <li><a href="/" className="hover:underline">Support</a></li>
+              <li><a href="/" className="hover:underline">Terms</a></li>
+              <li><a href="/" className="hover:underline">Privacy</a></li>
             </ul>
           </div>
 
@@ -53,11 +57,11 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-lg font-bold">Follow Us</h3>
             <ul className="space-y-3">
-              <li><a href="#" aria-label="Visit our Facebook" className="flex items-center space-x-3 hover:underline"><FaFacebookF /><span>Facebook</span></a></li>
-              <li><a href="#" aria-label="Visit our Instagram" className="flex items-center space-x-3 hover:underline"><FaInstagram /><span>Instagram</span></a></li>
-              <li><a href="#" aria-label="Visit our Twitter" className="flex items-center space-x-3 hover:underline"><FaTwitter /><span>Twitter</span></a></li>
-              <li><a href="#" aria-label="Visit our LinkedIn" className="flex items-center space-x-3 hover:underline"><FaLinkedinIn /><span>LinkedIn</span></a></li>
-              <li><a href="#" aria-label="Visit our YouTube" className="flex items-center space-x-3 hover:underline"><FaYoutube /><span>YouTube</span></a></li>
+              <li><a href="/" aria-label="Visit our Facebook" className="flex items-center space-x-3 hover:underline"><FaFacebookF /><span>Facebook</span></a></li>
+              <li><a href="/" aria-label="Visit our Instagram" className="flex items-center space-x-3 hover:underline"><FaInstagram /><span>Instagram</span></a></li>
+              <li><a href="/" aria-label="Visit our Twitter" className="flex items-center space-x-3 hover:underline"><FaTwitter /><span>Twitter</span></a></li>
+              <li><a href="/" aria-label="Visit our LinkedIn" className="flex items-center space-x-3 hover:underline"><FaLinkedinIn /><span>LinkedIn</span></a></li>
+              <li><a href="/" aria-label="Visit our YouTube" className="flex items-center space-x-3 hover:underline"><FaYoutube /><span>YouTube</span></a></li>
             </ul>
           </div>
         </div>
@@ -68,5 +72,7 @@ export default function Footer() {
         <p>Copyright © , Headphone Zone. Owned, Operated & Funded by Proud Indians {new Date().getFullYear()} All rights reserved.</p>
       </div>
     </footer>
+
+    </>
   );
 }

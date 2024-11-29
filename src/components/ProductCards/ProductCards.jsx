@@ -138,9 +138,11 @@ const ProductCards = () => {
 
     return (
         <>
-            <div className="max-w-screen-xl px-4 py-8 mx-auto">
-                <h2 className="mb-6 text-2xl font-semibold">Top Rated Products</h2>
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="max-w-screen-xl px-2 py-4 mx-auto sm:px-4 sm:py-8">
+                <h2 className="mb-4 text-xl font-semibold sm:text-2xl sm:mb-6">
+                    Top Rated Products
+                </h2>
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6">
                     {products.map((product) => (
                         <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
                     ))}

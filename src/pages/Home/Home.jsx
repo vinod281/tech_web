@@ -1,10 +1,10 @@
 import React from 'react'
 import Carousel from '../../components/Carousel/Carousel';
-import Cart from '../../components/Cart/Cart';
 import Categories from '../../components/Categories/Categories';
 import ProductCards from '../../components/ProductCards/ProductCards';
 import Reviews from '../../components/Reviews/Reviews';
-import { useState } from 'react';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 
 function Home() {
@@ -17,12 +17,12 @@ function Home() {
             {/* Button to open the Cart */}
             
 
-            
+            <Navbar/>
             <Categories />
             <Carousel />
             <ProductCards />
-            <Reviews />
-            
+            <Reviews /><br></br><br></br>
+            <Footer/>
 
         </>
     )

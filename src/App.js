@@ -1,9 +1,9 @@
 import './App.css';
 import Home from './pages/Home/Home';
-import ProductOverview from './pages/ProductOverview/ProductOverview';
-import Navbar from './components/Navbar/Navbar';
-import Payment from './pages/Payment/Payment';
-import Footer from './components/Footer/Footer';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login/Login';
+
 
 
 
@@ -12,12 +12,18 @@ function App() {
 
   return (
     <>
-    <Navbar/>  
-    <Home/>
-    <ProductOverview/>
-    <Payment/>
-    <Footer/>
 
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/home' element={<Home/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+    </Routes>
+    </BrowserRouter>
+
+
+    
+    
       
     </>
   );
