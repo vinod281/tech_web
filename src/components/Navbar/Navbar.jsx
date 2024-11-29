@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { FaIconName } from 'react-icons/fa';
-import ShoppingCartOutlined from '@mui/icons-material/ShoppingCartOutlined';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cart from '../Cart/Cart';
 import { useNavigate } from 'react-router-dom';
