@@ -73,7 +73,7 @@ export default function Login() {
 
                             <p className="mt-10 text-center text-gray-500 text-sm/6">
                         Not a member?{' '}
-                        <a href="/" className="font-semibold text-gray-500 hover:text-gray-700">
+                        <a href="/register" className="font-semibold text-gray-500 hover:text-gray-700">
                             Sign up here
                         </a>
                     </p>

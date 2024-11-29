@@ -7,7 +7,7 @@ export default function Footer() {
     <>
     
   
-    <footer className="py-10 bg-gray-50">
+    <footer className="px-6 py-10 bg-gray-50">
       <div className="container grid grid-cols-1 gap-6 mx-auto text-center sm:grid-cols-2 md:grid-cols-4 md:text-left">
         {/* Logo and Description */}
         <div className="flex flex-col items-center md:items-start">
