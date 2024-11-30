@@ -22,10 +22,10 @@ export default function Register() {
                         </h2>
                     </div>
 
-                    <div className="mt-12 sm:mx-auto ">
+                    <div className="mt-12 sm:mx-auto sm:w-full ">
                         <form action="#" method="POST" className="space-y-6">
 
-                            <div className='flex flex-wrap gap-20 '>
+                            <div className='flex flex-wrap justify-center gap-20'>
 
                                 <div>
 
