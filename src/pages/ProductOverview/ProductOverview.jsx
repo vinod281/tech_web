@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const App = () => {
+
   const [mainImage, setMainImage] = useState("/images/thumb1.jpg"); // Default main image
   const [selectedColor, setSelectedColor] = useState(""); // For tracking the selected color
 
@@ -16,6 +17,8 @@ const App = () => {
   };
 
   return (
+
+    
     <div className="bg-gray-50">
       {/* Product Details Section */}
       <div className="py-12 bg-gray-50">

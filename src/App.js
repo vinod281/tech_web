@@ -1,12 +1,16 @@
 import './App.css';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+
 import ProductOverview from './pages/ProductOverview/ProductOverview';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Register from './pages/Register/Register';
 
+
+
 function App() {
   return (
+    
     <>
       <BrowserRouter>
         <Routes>
