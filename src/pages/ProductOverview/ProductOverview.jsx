@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const App = () => {
 
-  const [mainImage, setMainImage] = useState("/images/thumb1.jpg"); // Default main image
+  const [mainImage, setMainImage] = useState("https://i5.walmartimages.com/seo/VEATOOL-Bluetooth-Headphones-True-Wireless-Earbuds-65H-Playback-Power-Display-Earphones-Charging-Case-IPX7-Waterproof-in-Ear-Mic-TV-Smart-Phone-Compu_4fcdfe6c-8b6a-4cde-9d14-b2d02f026c7e.72bb21d7b7199d42acb8615ffbaa0470.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF"); // Default main image
   const [selectedColor, setSelectedColor] = useState(""); // For tracking the selected color
 
   // Function to handle thumbnail click to change the main image
@@ -22,92 +22,95 @@ const App = () => {
     <div className="bg-gray-50">
       {/* Product Details Section */}
       <div className="py-12 bg-gray-50">
-        <div className="container grid grid-cols-1 gap-12 px-4 mx-auto md:grid-cols-2 lg:px-8">
-          {/* Image Section */}
-          <div className="space-y-6">
-            {/* Main Product Image */}
-            <div className="overflow-hidden rounded-lg shadow-md">
-              <img
-                src={mainImage} // Dynamically change the image based on the selected thumbnail/color
-                alt="Main image"
-                className="h-[400px] w-full object-cover transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-
-            {/* Thumbnail Images */}
-            <div className="flex justify-center space-x-4">
-              {[1, 2, 3, 4].map((item) => (
-                <div
-                  key={item}
-                  className="overflow-hidden transition-all duration-300 border-2 border-gray-200 rounded-lg hover:border-red-500"
-                  onClick={() => handleThumbnailClick(`/images/thumb${item}.jpg`)} // Update image when clicked
-                >
-                  <img
-                    src={`/images/thumb${item}.jpg`} // Thumbnail images
-                    alt={`Thumbnail ${item}`}
-                    className="object-cover w-20 h-20 cursor-pointer"
-                  />
-                </div>
-              ))}
-            </div>
+  <div className="container grid grid-cols-1 gap-12 px-4 mx-auto md:grid-cols-2 lg:px-8">
+    {/* Image Section */}
+    <div className="flex space-x-6">
+      {/* Thumbnail Images */}
+      <div className="flex flex-col space-y-4">
+        {[1, 2, 3, 4].map((item) => (
+          <div
+            key={item}
+            className="overflow-hidden transition-all duration-300 border-2 border-gray-200 rounded-lg hover:border-red-500"
+            onClick={() => handleThumbnailClick(`/images/thumb${item}.jpg`)} // Update image when clicked
+          >
+            <img
+              src={`/images/thumb${item}.jpg`} // Thumbnail images
+              alt={`Thumbnail ${item}`}
+              className="object-cover w-20 h-20 cursor-pointer lg:w-32 lg:h-32" // Adjusted size for better alignment
+            />
           </div>
+        ))}
+      </div>
 
-          {/* Details Section */}
-          <div className="flex flex-col justify-between">
-            {/* Product Info */}
-            <div>
-              <h1 className="text-3xl font-extrabold text-gray-800">
-                F9 Wireless Earphones Bluetooth TWS Noise Reduction Headphone
-              </h1>
-              <p className="mt-2 text-4xl font-semibold text-red-500">LKR 2,450.07</p>
-              <p className="text-gray-500 line-through text-m">LKR 5,000.00</p>
-              <p className="font-medium text-green-600 text-m">Save LKR 2,550.00</p>
+      {/* Main Product Image */}
+      <div className="overflow-hidden rounded-lg shadow-md">
+        <img
+          src={mainImage} // Dynamically change the image based on the selected thumbnail/color
+          alt="Main image"
+          className="h-[600px] w-[full]   object-cover transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+    </div>
 
-              {/* Description */}
-              <p className="mt-6 leading-relaxed text-gray-800">
-                5+ pieces, extra 2% off Tax excluded, add at checkout if applicable.
-              </p>
+    {/* Details Section */}
+    <div className="flex flex-col justify-between">
+      {/* Product Info */}
+      <div>
+        <h1 className="text-3xl font-extrabold text-gray-800">
+          F9 Wireless Earphones Bluetooth TWS Noise Reduction Headphone
+        </h1>
+        <p className="mt-2 text-4xl font-semibold text-red-500">LKR 2,450.07</p>
+        <p className="text-gray-500 line-through text-m">LKR 5,000.00</p>
+        <p className="font-medium text-green-600 text-m">Save LKR 2,550.00</p>
 
-              {/* Color Options */}
-              <div className="mt-6">
-                <h3 className="mb-2 text-lg font-bold">Select Color:</h3>
-                <div className="flex items-center space-x-4">
-                  {/* Example Colors */}
-                  {[
-                    { name: "White", img: "/images/white.jpg" },
-                    { name: "Black", img: "/images/black.jpg" },
-                  ].map((color, index) => (
-                    <div
-                      key={index}
-                      className="p-2 transition-all border-2 border-gray-300 rounded-lg cursor-pointer group hover:border-red-500"
-                      onClick={() => handleColorSelect(color.img)} // Change image when color is selected
-                    >
-                      <img
-                        src={color.img}
-                        alt={color.name}
-                        className="object-cover w-16 h-16 rounded-md"
-                      />
-                      <p className="mt-1 text-sm font-medium text-center group-hover:text-red-500">
-                        {color.name}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+        {/* Description */}
+        <p className="mt-6 leading-relaxed text-gray-800">
+          5+ pieces, extra 2% off Tax excluded, add at checkout if applicable.
+        </p>
+
+        {/* Color Options */}
+        <div className="mt-6">
+          <h3 className="mb-2 text-lg font-bold">Select Color:</h3>
+          <div className="flex items-center space-x-4">
+            {/* Example Colors */}
+            {[
+              { name: "White", img: "/images/white.jpg" },
+              { name: "Black", img: "/images/black.jpg" },
+            ].map((color, index) => (
+              <div
+                key={index}
+                className="p-2 transition-all border-2 border-gray-300 rounded-lg cursor-pointer group hover:border-red-500"
+                onClick={() => handleColorSelect(color.img)} // Change image when color is selected
+              >
+                <img
+                  src={color.img}
+                  alt={color.name}
+                  className="object-cover w-20 h-20 rounded-md"
+                />
+                <p className="mt-1 text-sm font-medium text-center group-hover:text-red-500">
+                  {color.name}
+                </p>
               </div>
-            </div>
-
-            {/* Buttons */}
-            <div className="flex items-center mt-8 space-x-4">
-              <button className="px-6 py-3 text-lg font-semibold text-white transition-all bg-red-500 rounded-lg shadow-lg hover:bg-red-600">
-                Buy Now
-              </button>
-              <button className="px-6 py-3 text-lg font-semibold text-gray-800 transition-all bg-gray-100 rounded-lg shadow-lg hover:bg-gray-200 outline outline-2 outline-gray-800 focus:outline-blue-500">
-                Add to Cart
-              </button>
-            </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Buttons */}
+      <div className="flex items-center mt-8 space-x-4">
+        <button className="px-6 py-3 text-lg font-semibold text-white transition-all bg-red-500 rounded-lg shadow-lg hover:bg-red-600">
+          Buy Now
+        </button>
+        <button className="px-6 py-3 text-lg font-semibold text-gray-800 transition-all bg-gray-100 rounded-lg shadow-lg hover:bg-gray-200 outline outline-2 outline-gray-800 focus:outline-blue-500">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
      
 
@@ -217,11 +220,11 @@ const App = () => {
         { name: "Smart Earbuds 2024", price: "LKR 1,999.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,501.00", img: "https://www.simplytek.lk/cdn/shop/files/SoundPEATS-Air4-Wireless-Earbuds_Simplytek_Srilanka-1.jpg?v=1694427458&width=610" },
         { name: "Smart Eaurbuds 2023", price: "LKR 1,500.00", originalPrice: "LKR 2,800.00", discount: "Save LKR 1,300.00", img: "https://earphones.lk/wp-content/uploads/2024/07/True-Wireless-Earphones-Noise-Cancelling-Sports-Earbuds-Smart-Touch-Screen-Microphone-in-Ear-Headphone.jpg" },
         { name: "Smart Watch X", price: "LKR 2,300.00", originalPrice: "LKR 4,000.00", discount: "Save LKR 1,700.00", img: "https://www.att.com/scmsassets/global/accessories/audio/samsung/samsung-galaxy-buds3-pro-wireless-earbuds/carousel/4317t-6.png" },
-        { name: "Smart Watch Pro", price: "LKR 3,000.00", originalPrice: "LKR 5,000.00", discount: "Save LKR 2,000.00", img: "/images/img4.jpg" },
-        { name: "Smart Watch Sport", price: "LKR 1,700.00", originalPrice: "LKR 3,200.00", discount: "Save LKR 1,500.00", img: "/images/img5.jpg" },
-        { name: "Smart Watch Lite", price: "LKR 2,100.00", originalPrice: "LKR 3,700.00", discount: "Save LKR 1,600.00", img: "/images/img6.jpg" },
-        { name: "Smart Watch Ultra", price: "LKR 3,500.00", originalPrice: "LKR 6,000.00", discount: "Save LKR 2,500.00", img: "/images/img7.jpg" },
-        { name: "Smart Watch Classic", price: "LKR 2,000.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,500.00", img: "/images/img8.jpg" },
+        { name: "Smart Watch Pro", price: "LKR 3,000.00", originalPrice: "LKR 5,000.00", discount: "Save LKR 2,000.00", img: "https://earphones.lk/wp-content/uploads/2024/05/WH-CH720N-Wireless-simplytek-lk_2.webp" },
+        { name: "Smart Watch Sport", price: "LKR 1,700.00", originalPrice: "LKR 3,200.00", discount: "Save LKR 1,500.00", img: "https://img.drz.lazcdn.com/static/lk/p/d4bdfbfdc6f2c9b2c61f345ce128248b.jpg_720x720q80.jpg" },
+        { name: "Smart Watch Lite", price: "LKR 2,100.00", originalPrice: "LKR 3,700.00", discount: "Save LKR 1,600.00", img: "https://cdn.shopify.com/s/files/1/2794/1798/files/emFloearphonebuds720x.png?v=1691980192" },
+        { name: "Smart Watch Ultra", price: "LKR 3,500.00", originalPrice: "LKR 6,000.00", discount: "Save LKR 2,500.00", img: "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x/pro-headset-gallery-1.png?v=1" },
+        { name: "Smart Watch Classic", price: "LKR 2,000.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,500.00", img: "https://www.mytrendyphone.eu/images/M47-Earclip-Bone-Conduction-Wireless-Headphone-with-Mic-Bluetooth-5-3-Gaming-Headset-Noise-Reduction-Sport-Earphone-NudeNone-04122023-00-p.webp" },
       ].map((product, index) => (
         <div key={index} className="p-4 bg-white rounded-md shadow-md hover:shadow-lg">
           {/* Wrap the image in an anchor tag to make it clickable */}
