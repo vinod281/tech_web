@@ -20,17 +20,17 @@ const AboutUs = () => {
       {/* Team Section */}
       <section className="grid grid-cols-1 gap-16 mb-20 md:grid-cols-2 lg:grid-cols-3">
         <div className="text-center transition-transform duration-300 hover:scale-105">
-          <img src="https://media.istockphoto.com/id/1371934584/photo/portrait-of-a-confident-mature-businesswoman-working-in-a-modern-office.jpg?s=612x612&w=0&k=20&c=NF_IO6IEXY3HifRIhRqP0KDFJFdlFwaMwo3zfOOvKnQ=" alt="Team Member 1" className="w-40 h-40 mx-auto mb-6 rounded-full shadow-lg" />
-          <h3 className="text-xl font-semibold text-gray-800">John Doe</h3>
+          <img src="https://freedesignfile.com/upload/2017/06/Women-working-in-the-office-Stock-Photo.jpg" alt="Team Member 1" className="w-40 h-40 mx-auto mb-6 rounded-full shadow-lg" />
+          <h3 className="text-xl font-semibold text-gray-800">Lees Doe</h3>
           <p className="text-gray-500">CEO & Founder</p>
         </div>
         <div className="text-center transition-transform duration-300 hover:scale-105">
-          <img src="https://www.shutterstock.com/image-photo/happy-mature-business-woman-entrepreneur-260nw-2350002273.jpg" alt="Team Member 2" className="w-40 h-40 mx-auto mb-6 rounded-full shadow-lg" />
+          <img src="https://media.istockphoto.com/id/1365730050/photo/portrait-of-a-mature-businessman-standing-with-his-arms-folded-in-a-modern-office.jpg?s=612x612&w=0&k=20&c=VVXOoJOYY9RaviU2OLpCRaWeqhi8EIIeYYexMUKn5M8=" alt="Team Member 2" className="w-40 h-40 mx-auto mb-6 rounded-full shadow-lg" />
           <h3 className="text-xl font-semibold text-gray-800">Jane Smith</h3>
           <p className="text-gray-500">CTO & Co-Founder</p>
         </div>
         <div className="text-center transition-transform duration-300 hover:scale-105">
-          <img src="https://media.istockphoto.com/id/1371934584/photo/portrait-of-a-confident-mature-businesswoman-working-in-a-modern-office.jpg?s=612x612&w=0&k=20&c=NF_IO6IEXY3HifRIhRqP0KDFJFdlFwaMwo3zfOOvKnQ=" alt="Team Member 3" className="w-40 h-40 mx-auto mb-6 rounded-full shadow-lg" />
+          <img src="https://media.istockphoto.com/id/487451128/photo/arab-business-woman-at-work.jpg?s=612x612&w=0&k=20&c=wVaEP5I8grO92uUobKHTAO4GCCbxClTvboyk4TfWknY=" alt="Team Member 3" className="w-40 h-40 mx-auto mb-6 rounded-full shadow-lg" />
           <h3 className="text-xl font-semibold text-gray-800">Emily Johnson</h3>
           <p className="text-gray-500">Lead Designer</p>
         </div>
