@@ -214,9 +214,9 @@ const App = () => {
     <h2 className="mb-4 text-lg font-semibold">Related Items</h2>
     <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
       {[
-        { name: "Smart Earbuds 2024", price: "LKR 1,999.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,501.00", img: "/images/P2.webp" },
-        { name: "Smart Eaurbuds 2023", price: "LKR 1,500.00", originalPrice: "LKR 2,800.00", discount: "Save LKR 1,300.00", img: "/images/img2.jpg" },
-        { name: "Smart Watch X", price: "LKR 2,300.00", originalPrice: "LKR 4,000.00", discount: "Save LKR 1,700.00", img: "/images/img3.jpg" },
+        { name: "Smart Earbuds 2024", price: "LKR 1,999.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,501.00", img: "https://www.simplytek.lk/cdn/shop/files/SoundPEATS-Air4-Wireless-Earbuds_Simplytek_Srilanka-1.jpg?v=1694427458&width=610" },
+        { name: "Smart Eaurbuds 2023", price: "LKR 1,500.00", originalPrice: "LKR 2,800.00", discount: "Save LKR 1,300.00", img: "https://earphones.lk/wp-content/uploads/2024/07/True-Wireless-Earphones-Noise-Cancelling-Sports-Earbuds-Smart-Touch-Screen-Microphone-in-Ear-Headphone.jpg" },
+        { name: "Smart Watch X", price: "LKR 2,300.00", originalPrice: "LKR 4,000.00", discount: "Save LKR 1,700.00", img: "https://www.att.com/scmsassets/global/accessories/audio/samsung/samsung-galaxy-buds3-pro-wireless-earbuds/carousel/4317t-6.png" },
         { name: "Smart Watch Pro", price: "LKR 3,000.00", originalPrice: "LKR 5,000.00", discount: "Save LKR 2,000.00", img: "/images/img4.jpg" },
         { name: "Smart Watch Sport", price: "LKR 1,700.00", originalPrice: "LKR 3,200.00", discount: "Save LKR 1,500.00", img: "/images/img5.jpg" },
         { name: "Smart Watch Lite", price: "LKR 2,100.00", originalPrice: "LKR 3,700.00", discount: "Save LKR 1,600.00", img: "/images/img6.jpg" },
@@ -229,7 +229,7 @@ const App = () => {
             <img
               src={product.img} // Dynamically use the image path for each product
               alt={product.name}
-              className="object-cover w-full h-40 mb-2 rounded-md"
+              className="object-cover w-full h-48 mb-2 rounded-md md:h-56 lg:h-64" // Adjusted height
             />
           </a>
           <h3 className="text-sm font-medium">{product.name}</h3>
@@ -241,6 +241,7 @@ const App = () => {
     </div>
   </div>
 </div>
+
 
 
 
