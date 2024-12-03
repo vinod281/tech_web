@@ -109,41 +109,50 @@ const App = () => {
         </div>
       </div>
 
-     {/* Related Items Section */}
-<div className="py-8 bg-gray-100">
+     
+
+
+   
+      {/* Specifications Section */}
+      <div className="py-8 bg-gray-100">
   <div className="container px-4 mx-auto">
-    <h2 className="mb-4 text-lg font-semibold">Related Items</h2>
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-      {[
-        { name: "Smart Earbuds 2024", price: "LKR 1,999.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,501.00", img: "/images/P2.webp" },
-        { name: "Smart Eaurbuds 2023", price: "LKR 1,500.00", originalPrice: "LKR 2,800.00", discount: "Save LKR 1,300.00", img: "/images/img2.jpg" },
-        { name: "Smart Watch X", price: "LKR 2,300.00", originalPrice: "LKR 4,000.00", discount: "Save LKR 1,700.00", img: "/images/img3.jpg" },
-        { name: "Smart Watch Pro", price: "LKR 3,000.00", originalPrice: "LKR 5,000.00", discount: "Save LKR 2,000.00", img: "/images/img4.jpg" },
-        { name: "Smart Watch Sport", price: "LKR 1,700.00", originalPrice: "LKR 3,200.00", discount: "Save LKR 1,500.00", img: "/images/img5.jpg" },
-        { name: "Smart Watch Lite", price: "LKR 2,100.00", originalPrice: "LKR 3,700.00", discount: "Save LKR 1,600.00", img: "/images/img6.jpg" },
-        { name: "Smart Watch Ultra", price: "LKR 3,500.00", originalPrice: "LKR 6,000.00", discount: "Save LKR 2,500.00", img: "/images/img7.jpg" },
-        { name: "Smart Watch Classic", price: "LKR 2,000.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,500.00", img: "/images/img8.jpg" },
-      ].map((product, index) => (
-        <div key={index} className="p-4 bg-white rounded-md shadow-md hover:shadow-lg">
-          {/* Wrap the image in an anchor tag to make it clickable */}
-          <a href={`/product/${product.name.replace(/\s+/g, '-').toLowerCase()}`} className="block">
-            <img
-              src={product.img} // Dynamically use the image path for each product
-              alt={product.name}
-              className="object-cover w-full h-40 mb-2 rounded-md"
-            />
-          </a>
-          <h3 className="text-sm font-medium">{product.name}</h3>
-          <p className="font-bold text-red-500">{product.price}</p>
-          <p className="text-sm text-gray-400 line-through">{product.originalPrice}</p>
-          <p className="text-sm text-green-500">{product.discount}</p>
-        </div>
-      ))}
+    <h2 className="mb-4 text-lg font-semibold text-gray-800">Product Specifications</h2>
+    <div className="p-6 bg-white rounded-lg shadow-lg">
+      <ul className="space-y-3 text-gray-600">
+        <li className="flex flex-col items-start sm:flex-row sm:items-center">
+          <span className="w-full font-medium text-gray-800 sm:w-32">Bluetooth version:</span>
+          <span className="text-gray-600">
+            Bluetooth 5.0 offers improved range, speed, and stability, making it perfect for uninterrupted wireless listening.
+          </span>
+        </li>
+        <li className="flex flex-col items-start sm:flex-row sm:items-center">
+          <span className="w-full font-medium text-gray-800 sm:w-32">Battery life:</span>
+          <span className="text-gray-600">
+            Enjoy up to 10 hours of continuous music playback or talk time, ensuring you stay connected all day.
+          </span>
+        </li>
+        <li className="flex flex-col items-start sm:flex-row sm:items-center">
+          <span className="w-full font-medium text-gray-800 sm:w-32">Charging time:</span>
+          <span className="text-gray-600">
+            Fully charge your earbuds in just 2 hours, so you can get back to listening to your favorite music quickly.
+          </span>
+        </li>
+        <li className="flex flex-col items-start sm:flex-row sm:items-center">
+          <span className="w-full font-medium text-gray-800 sm:w-32">Weight:</span>
+          <span className="text-gray-600">
+            The earbuds weigh only 200g, making them lightweight and comfortable for extended use without fatigue.
+          </span>
+        </li>
+        <li className="flex flex-col items-start sm:flex-row sm:items-center">
+          <span className="w-full font-medium text-gray-800 sm:w-32">Compatibility:</span>
+          <span className="text-gray-600">
+            These earbuds are fully compatible with both Android and iOS devices, allowing you to seamlessly connect to smartphones, tablets, and laptops.
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
-
-      
+</div>   
 
 {/* Customer Reviews Section */}
 <div className="py-8 bg-white">
@@ -199,51 +208,45 @@ const App = () => {
   </div>
 </div>
 
-
-
-
-
-
-      {/* Specifications Section */}
-      <div className="py-8 bg-gray-100">
+{/* Related Items Section */}
+<div className="py-8 bg-gray-100">
   <div className="container px-4 mx-auto">
-    <h2 className="mb-4 text-lg font-semibold text-gray-800">Product Specifications</h2>
-    <div className="p-6 bg-white rounded-lg shadow-lg">
-      <ul className="space-y-3 text-gray-600">
-        <li className="flex flex-col items-start sm:flex-row sm:items-center">
-          <span className="w-full font-medium text-gray-800 sm:w-32">Bluetooth version:</span>
-          <span className="text-gray-600">
-            Bluetooth 5.0 offers improved range, speed, and stability, making it perfect for uninterrupted wireless listening.
-          </span>
-        </li>
-        <li className="flex flex-col items-start sm:flex-row sm:items-center">
-          <span className="w-full font-medium text-gray-800 sm:w-32">Battery life:</span>
-          <span className="text-gray-600">
-            Enjoy up to 10 hours of continuous music playback or talk time, ensuring you stay connected all day.
-          </span>
-        </li>
-        <li className="flex flex-col items-start sm:flex-row sm:items-center">
-          <span className="w-full font-medium text-gray-800 sm:w-32">Charging time:</span>
-          <span className="text-gray-600">
-            Fully charge your earbuds in just 2 hours, so you can get back to listening to your favorite music quickly.
-          </span>
-        </li>
-        <li className="flex flex-col items-start sm:flex-row sm:items-center">
-          <span className="w-full font-medium text-gray-800 sm:w-32">Weight:</span>
-          <span className="text-gray-600">
-            The earbuds weigh only 200g, making them lightweight and comfortable for extended use without fatigue.
-          </span>
-        </li>
-        <li className="flex flex-col items-start sm:flex-row sm:items-center">
-          <span className="w-full font-medium text-gray-800 sm:w-32">Compatibility:</span>
-          <span className="text-gray-600">
-            These earbuds are fully compatible with both Android and iOS devices, allowing you to seamlessly connect to smartphones, tablets, and laptops.
-          </span>
-        </li>
-      </ul>
+    <h2 className="mb-4 text-lg font-semibold">Related Items</h2>
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      {[
+        { name: "Smart Earbuds 2024", price: "LKR 1,999.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,501.00", img: "/images/P2.webp" },
+        { name: "Smart Eaurbuds 2023", price: "LKR 1,500.00", originalPrice: "LKR 2,800.00", discount: "Save LKR 1,300.00", img: "/images/img2.jpg" },
+        { name: "Smart Watch X", price: "LKR 2,300.00", originalPrice: "LKR 4,000.00", discount: "Save LKR 1,700.00", img: "/images/img3.jpg" },
+        { name: "Smart Watch Pro", price: "LKR 3,000.00", originalPrice: "LKR 5,000.00", discount: "Save LKR 2,000.00", img: "/images/img4.jpg" },
+        { name: "Smart Watch Sport", price: "LKR 1,700.00", originalPrice: "LKR 3,200.00", discount: "Save LKR 1,500.00", img: "/images/img5.jpg" },
+        { name: "Smart Watch Lite", price: "LKR 2,100.00", originalPrice: "LKR 3,700.00", discount: "Save LKR 1,600.00", img: "/images/img6.jpg" },
+        { name: "Smart Watch Ultra", price: "LKR 3,500.00", originalPrice: "LKR 6,000.00", discount: "Save LKR 2,500.00", img: "/images/img7.jpg" },
+        { name: "Smart Watch Classic", price: "LKR 2,000.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,500.00", img: "/images/img8.jpg" },
+      ].map((product, index) => (
+        <div key={index} className="p-4 bg-white rounded-md shadow-md hover:shadow-lg">
+          {/* Wrap the image in an anchor tag to make it clickable */}
+          <a href={`/product/${product.name.replace(/\s+/g, '-').toLowerCase()}`} className="block">
+            <img
+              src={product.img} // Dynamically use the image path for each product
+              alt={product.name}
+              className="object-cover w-full h-40 mb-2 rounded-md"
+            />
+          </a>
+          <h3 className="text-sm font-medium">{product.name}</h3>
+          <p className="font-bold text-red-500">{product.price}</p>
+          <p className="text-sm text-gray-400 line-through">{product.originalPrice}</p>
+          <p className="text-sm text-green-500">{product.discount}</p>
+        </div>
+      ))}
     </div>
   </div>
 </div>
+
+
+
+
+
+
 
     </div>
   );
