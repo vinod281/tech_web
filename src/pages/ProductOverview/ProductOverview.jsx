@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const App = () => {
 
@@ -16,8 +18,8 @@ const App = () => {
     setMainImage(colorImage); // Change main image to selected color's image
   };
 
-  return (
-
+  return (<>
+    <Navbar/>
     
     <div className="bg-gray-50">
       {/* Product Details Section */}
@@ -253,6 +255,9 @@ const App = () => {
 
 
     </div>
+
+    <Footer/>
+    </>
   );
 };
 
