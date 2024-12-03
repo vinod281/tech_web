@@ -5,24 +5,29 @@ import ProductCards from '../../components/ProductCards/ProductCards';
 import Reviews from '../../components/Reviews/Reviews';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import Banner from '../../components/Banner/Banner';
 
 
 function Home() {
 
-    
+
 
     return (
         <>
 
             {/* Button to open the Cart */}
-            
 
-            <Navbar/>
+
+            <Navbar />
+
+            <Banner/>
+
+            
             <Categories />
-            <Carousel />
+            {/* <Carousel /> */}
             <ProductCards />
             <Reviews /><br></br><br></br>
-            <Footer/>
+            <Footer />
 
         </>
     )
