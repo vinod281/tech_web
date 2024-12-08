@@ -1,7 +1,12 @@
 import React from 'react';
+import Footer from '../../components/Footer/Footer';
+import Navbar from '../../components/Navbar/Navbar';
 
 const AboutUs = () => {
   return (
+    <>
+
+    <Navbar/>
     <div className="px-6 py-16 bg-gray-50 md:px-12">
       {/* Header */}
       <div className="mb-16 text-center">
@@ -67,6 +72,8 @@ const AboutUs = () => {
         </div>
       </section>
     </div>
+    <Footer/>
+    </>
   );
 };
 
