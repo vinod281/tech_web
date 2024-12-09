@@ -32,13 +32,13 @@ function Categories() {
         },
         {
             id: 5,
-            image: "https://m.media-amazon.com/images/I/619gDUPcbNL.jpg", // Replace with actual image URL
+            image: "https://m.media-amazon.com/images/I/619gDUPcbNL.jpg",
             title: "HEADPHONES & EARBUDS",
             products: "8 products",
         },
         {
             id: 6,
-            image: "https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/products/apple--1607949659.jpg", // Replace with actual image URL
+            image: "https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/products/apple--1607949659.jpg", 
             title: "CHARGERS & CABLES",
             products: "17 products",
         },
@@ -47,25 +47,25 @@ function Categories() {
     return (
         <>
 
-            <div className="max-w-screen-xl mx-auto px-4 py-8">
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 ">
+            <div className="max-w-screen-xl px-4 py-8 mx-auto">
+                <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 ">
                     {categories.map((category) => (
                         <div
                             key={category.id}
-                            className="flex flex-col items-center text-center space-y-2"
+                            className="flex flex-col items-center space-y-2 text-center"
                         >
-                            <div className="transition-transform duration-300 hover:scale-105 flex flex-col items-center text-center space-y-2">
-                                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center ">
+                            <div className="flex flex-col items-center space-y-2 text-center transition-transform duration-300 hover:scale-105">
+                                <div className="flex items-center justify-center w-24 h-24 overflow-hidden bg-gray-100 rounded-full sm:w-28 sm:h-28 ">
                                     <img
                                         src={category.image}
                                         alt={category.title}
-                                        className="w-full h-full object-cover"
+                                        className="object-cover w-full h-full"
                                     />
                                 </div>
                                 <h3 className="text-sm font-semibold sm:text-base">
                                     {category.title}
                                 </h3>
-                                <p className="text-xs sm:text-sm text-gray-500">
+                                <p className="text-xs text-gray-500 sm:text-sm">
                                     {category.products}
                                 </p>
                             </div>

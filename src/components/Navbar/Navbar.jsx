@@ -8,16 +8,17 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const [cartOpen, setCartOpen] = useState(false);
-    const [cartKey, setCartKey] = useState(0); 
+  const [cartKey, setCartKey] = useState(0);
 
-    const handleOpenCart = () => {
-        setCartKey((prevKey) => prevKey + 1); 
-        setCartOpen(true); 
-    };
+  const handleOpenCart = () => {
+    setCartKey((prevKey) => prevKey + 1);
+    setCartOpen(true);
+  };
 
   const handleDropdownToggle = (category) => {
     setActiveDropdown((prev) => (prev === category ? null : category));
@@ -36,15 +37,19 @@ export default function Navbar() {
 
   const navigate = useNavigate(); // Initialize navigate
 
-    const handleLoginClick = () => {
-        navigate('/login'); // Navigate to the login page
-    };
-
-    const handleHomeClick = () => {
-      navigate('/home'); // Navigate to the login page
+  const handleLoginClick = () => {
+    navigate('/login'); // Navigate to the login page
   };
-  
-  
+
+  const handleHomeClick = () => {
+    navigate('/home'); // Navigate to the login page
+  };
+
+  const handleAccountClick = () => {
+    navigate('/account'); // Navigate to the login page
+  };
+
+
 
   return (
     <div>
@@ -56,7 +61,7 @@ export default function Navbar() {
         <div className="space-x-6">
           <a href="/" className="text-white hover:text-gray-400">Home</a>
           <a href="#contact" className="text-white hover:text-gray-400">Contact</a>
-          <a href="#about" className="text-white hover:text-gray-400">About</a>
+          <a href="/about" className="text-white hover:text-gray-400">About</a>
         </div>
       </nav>
 
@@ -64,7 +69,7 @@ export default function Navbar() {
       <nav className="p-4 bg-white shadow-lg">
         <div className="container flex items-center justify-between mx-auto">
           {/* Logo */}
-          <div className="text-2xl font-bold text-gray-800 cursor-pointer"  onClick={handleHomeClick}>TechStore</div>
+          <div className="text-2xl font-bold text-gray-800 cursor-pointer" onClick={handleHomeClick}>TechStore</div>
 
           {/* Search Bar */}
           <div className="flex items-center w-full max-w-3xl space-x-2">
@@ -82,13 +87,13 @@ export default function Navbar() {
           <div className="flex items-center ml-4 space-x-4">
             <div>
 
-            <button onClick={handleOpenCart} className="text-gray-600">
-                    <ShoppingCartOutlinedIcon />
-                </button>
+              <button onClick={handleOpenCart} className="text-gray-600">
+                <ShoppingCartOutlinedIcon />
+              </button>
             </div>
-                {cartOpen && <Cart key={cartKey} open={cartOpen} setOpen={setCartOpen} />}
-            
-            <button className="text-gray-600">
+            {cartOpen && <Cart key={cartKey} open={cartOpen} setOpen={setCartOpen} />}
+
+            <button className="text-gray-600" onClick={handleAccountClick} >
               <i className="fa-regular fa-user"></i>
             </button>
             <button className="px-4 py-2 text-white bg-gray-900 rounded hover:bg-gray-800" onClick={handleLoginClick}>

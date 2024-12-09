@@ -4,7 +4,9 @@ import Login from './pages/Login/Login';
 import ProductOverview from './pages/ProductOverview/ProductOverview';
 import Register from './pages/Register/Register';
 import About from './pages/About/About'; 
+import Payment from './pages/Payment/Payment'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Account from './pages/Account/MyAccount';
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/product-overview" element={<ProductOverview />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/about" element={<About />} /> 
+        <Route path="/about" element={<About />} />
+        <Route path="/payment" element={<Payment/>} /> 
+        <Route path='/account' element={<Account/>} />
       </Routes>
     </BrowserRouter>
   );
