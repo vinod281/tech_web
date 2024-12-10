@@ -40,7 +40,7 @@ const App = () => {
                     <img
                       src={`/images/thumb${item}.jpg`} // Thumbnail images
                       alt={`Thumbnail ${item}`}
-                      className="object-cover w-20 h-20 cursor-pointer lg:w-32 lg:h-32" // Adjusted size for better alignment
+                      className="object-cover w-20 h-20 cursor-pointer lg:w-15 lg:h-15" // Adjusted size for better alignment
                     />
                   </div>
                 ))}
@@ -51,7 +51,7 @@ const App = () => {
                 <img
                   src={mainImage} // Dynamically change the image based on the selected thumbnail/color
                   alt="Main image"
-                  className="h-[600px] w-[full]   object-cover transition-transform duration-300 hover:scale-105"
+                  className="h-[400] w-[auto]   object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             </div>
@@ -60,15 +60,15 @@ const App = () => {
             <div className="flex flex-col justify-between">
               {/* Product Info */}
               <div>
-                <h1 className="text-3xl font-extrabold text-gray-800">
+                <h1 className="text-2xl font-extrabold text-gray-800">
                   F9 Wireless Earphones Bluetooth TWS Noise Reduction Headphone
                 </h1>
-                <p className="mt-2 text-4xl font-semibold text-red-500">LKR 2,450.07</p>
+                <p className="mt-2 text-2xl font-semibold text-red-500">LKR 2,450.07</p>
                 <p className="text-gray-500 line-through text-m">LKR 5,000.00</p>
                 <p className="font-medium text-green-600 text-m">Save LKR 2,550.00</p>
 
                 {/* Description */}
-                <p className="mt-6 leading-relaxed text-gray-800">
+                <p className="mt-2 leading-relaxed text-gray-800">
                   5+ pieces, extra 2% off Tax excluded, add at checkout if applicable.
                 </p>
 
