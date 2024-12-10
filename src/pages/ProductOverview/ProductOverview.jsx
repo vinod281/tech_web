@@ -5,7 +5,7 @@ import Footer from "../../components/Footer/Footer";
 
 const App = () => {
 
-  const [mainImage, setMainImage] = useState("https://i5.walmartimages.com/seo/VEATOOL-Bluetooth-Headphones-True-Wireless-Earbuds-65H-Playback-Power-Display-Earphones-Charging-Case-IPX7-Waterproof-in-Ear-Mic-TV-Smart-Phone-Compu_4fcdfe6c-8b6a-4cde-9d14-b2d02f026c7e.72bb21d7b7199d42acb8615ffbaa0470.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF"); // Default main image
+  const [mainImage, setMainImage] = useState("https://image.made-in-china.com/2f0j00kApVwBMhkWzi/Tws-F9-5-Wireless-Earbud-Stereo-Noise-Reduction-Headphone-Touch-Control-Earphone-Power-Bank-Headset-Support-All-Phone-F9-Earbuds.webp"); // Default main image
   const [selectedColor, setSelectedColor] = useState(""); // For tracking the selected color
 
   // Function to handle thumbnail click to change the main image
@@ -51,7 +51,7 @@ const App = () => {
                 <img
                   src={mainImage} // Dynamically change the image based on the selected thumbnail/color
                   alt="Main image"
-                  className="h-[400] w-[auto]   object-cover transition-transform duration-300 hover:scale-105"
+                  className="h-[600] w-[full]   object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             </div>
@@ -78,8 +78,9 @@ const App = () => {
                   <div className="flex items-center space-x-4">
                     {/* Example Colors */}
                     {[
-                      { name: "White", img: "/images/white.jpg" },
-                      { name: "Black", img: "/images/black.jpg" },
+                      { name: "White", img: "https://image.made-in-china.com/2f0j00BdzqtFRCSMbJ/2024-New-Tws-F9-Gamin-Earphones-in-Ear-Headphones-HiFi-Game-Wireless-Earbuds-Noise-Cancelling-Tws-Earphones-Headphones.jpg" },
+                      { name: "Black", img: "https://image.made-in-china.com/2f0j00kApVwBMhkWzi/Tws-F9-5-Wireless-Earbud-Stereo-Noise-Reduction-Headphone-Touch-Control-Earphone-Power-Bank-Headset-Support-All-Phone-F9-Earbuds.webp" },
+                      
                     ].map((color, index) => (
                       <div
                         key={index}
@@ -102,12 +103,18 @@ const App = () => {
 
               {/* Buttons */}
               <div className="flex items-center mt-8 space-x-4">
-                <button className="px-6 py-3 text-lg font-semibold text-white transition-all bg-red-500 rounded-lg shadow-lg hover:bg-red-600">
-                  Buy Now
-                </button>
-                <button className="px-6 py-3 text-lg font-semibold text-gray-800 transition-all bg-gray-100 rounded-lg shadow-lg hover:bg-gray-200 outline outline-2 outline-gray-800 focus:outline-blue-500">
+                <a
+                  href="#"
+                  className="inline-block px-8 py-3 font-medium text-center text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-700"
+                >
+                  Checkout
+                </a>
+                <a
+                  href="#"
+                  className="inline-block px-8 py-3 font-medium text-center text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-700"
+                >
                   Add to Cart
-                </button>
+                </a>
               </div>
             </div>
           </div>
