@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import ProductCards from "../../components/ProductCards/ProductCards";
 
 const App = () => {
 
@@ -221,6 +222,10 @@ const App = () => {
             </div>
           </div>
         </div>
+
+
+              <ProductCards/>
+        
 
         {/* Related Items Section */}
         <div className="py-8 bg-gray-100">

@@ -146,7 +146,7 @@ const ProductCards = () => {
                         Add to cart
                     </span>
                 ) : (
-                    <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-red-700 rounded-md bg-red-50 ring-1 ring-inset ring-red-600/20">
+                    <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-red-700 rounded-md cursor-not-allowed bg-red-50 ring-1 ring-inset ring-red-600/20">
                         Out of stock
                     </span>
                 )}
