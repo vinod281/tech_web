@@ -8,72 +8,80 @@ const products = [
         id: 1,
         name: "Samsung Buds (clone)",
         imageUrl: "https://png.pngtree.com/png-vector/20240513/ourmid/pngtree-sleek-black-charging-case-with-wireless-earbuds-inside-png-image_12456729.png",
-        price: "RS 3600",
+        price: "RS 3600.00",
         reviews: "38 reviews",
         rating: 5,
+        stock: true,
     },
     {
         id: 2,
         name: "Remax 20000mah",
         imageUrl: "https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/products/8b9cc7c9808a81fc8db0eaf67a4d79d7_4a131036-d78e-48a7-8f01-3ff265a3a07f_1120x--1655727074.jpg",
-        price: "RS 2800",
+        price: "RS 2800.00",
         reviews: "18 reviews",
         rating: 5,
+        stock: false,
     },
     {
         id: 3,
         name: "Hohem Gimbal",
         imageUrl: "https://i0.wp.com/gearz.lk/wp-content/uploads/2024/03/Phone-Gimbal-Stabilizer-iSteady-XE-2023-Version-XE-Black-_-GreyXE-Kit-Black_1.webp",
-        price: "RS 8000",
+        price: "RS 8000.00",
         reviews: "14 reviews",
         rating: 5,
+        stock: true,
     },
     {
         id: 4,
         name: "Beats Headphone",
         imageUrl: "https://www.beatsbydre.com/content/dam/beats/web/product/headphones/solo4-wireless/pdp/product-carousel/slate-blue/blue-01-solo4.jpg",
-        price: "RS 3200",
+        price: "RS 3200.00",
         reviews: "21 reviews",
         rating: 4,
+        stock: true,
     },
     {
         id: 5,
         name: "Smart-Watch-x8",
         imageUrl: "https://gadgetasia.lk/wp-content/uploads/2024/06/sri-lanka-gadget-asia-lk-smart-watch-x8-unique-combination-best-price.png",
-        price: "RS 5500",
+        price: "RS 5500.00",
         reviews: "21 reviews",
         rating: 5,
+        stock: true,
     },
     {
         id: 6,
         name: "Organize Phone Holder",
         imageUrl: "https://static-01.daraz.lk/p/20188a91cf85429e01ee9172d206ece5.jpg",
-        price: "RS 1500",
+        price: "RS 1500.00",
         reviews: "21 reviews",
         rating: 3,
+        stock: true,
     },
     {
         id: 7,
         name: "Air Pods Pro (clone)",
         imageUrl: "https://static-01.daraz.lk/p/5d09b5da0c238f6e3aeed01be71b6884.jpg",
-        price: "RS 3900",
+        price: "RS 3900.00",
         reviews: "21 reviews",
         rating: 4,
+        stock: false,
     },
     {
         id: 8,
         name: "Realme Buds T100 Wireless Earbuds",
         imageUrl: "https://www.simplytek.lk/cdn/shop/files/Realme-Buds-T100-Earbuds-SimplyTek-LK-1.png?v=1694426071",
-        price: "RS 3900",
+        price: "RS 3900.00",
         reviews: "21 reviews",
         rating: 4,
+        stock: true,
     },
 ];
 
 const ProductCards = () => {
 
     const [notificationMessage, setNotificationMessage] = useState(null);
-    
+
     // Function to handle adding a product to the cart
     const addToCart = (product) => {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -82,24 +90,24 @@ const ProductCards = () => {
 
         if (existingProduct) {
             existingProduct.quantity += 1;
-            
+
         } else {
             cart.push({ ...product, quantity: 1 });
-            
+
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
         //alert(`${product.name} added to cart!`);
-        
-        
-        
+
+
+
         setNotificationMessage(`${product.name} added to cart!`);
-        
-        
+
+
         setTimeout(() => {
             setNotificationMessage(null);
         }, 3000);
-        
+
     };
 
     // Product Card Component
@@ -129,9 +137,25 @@ const ProductCards = () => {
                     <span className="ml-2 text-sm text-gray-500">{product.reviews}</span>
                 </div>
                 <p className="mt-2 text-lg font-semibold">{product.price}</p>
-                <Button className=" mt-3 inline-flex items-center gap-2 rounded-md bg-gray-400 py-1.5 px-3 text-xs font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white " onClick={() => onAddToCart(product)}>
-                    Add to cart
-                </Button>
+
+                {product.stock ? (
+                    <span
+                        className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 rounded-md cursor-pointer bg-green-50 ring-1 ring-inset ring-green-600/20"
+                        onClick={() => onAddToCart(product)}
+                    >
+                        Add to cart
+                    </span>
+                ) : (
+                    <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-red-700 rounded-md bg-red-50 ring-1 ring-inset ring-red-600/20">
+                        Out of stock
+                    </span>
+                )}
+
+
+
+
+
+
             </div>
         );
     };
