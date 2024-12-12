@@ -6,6 +6,8 @@ import Reviews from '../../components/Reviews/Reviews';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import Banner from '../../components/Banner/Banner';
+import Divider from '@mui/material/Divider';
+import Chip from '@mui/material/Chip';
 
 
 function Home() {
@@ -20,12 +22,19 @@ function Home() {
 
             <Navbar />
 
-            <Banner/>
+            <Banner />
+            <Divider variant="middle" component="li">
+                <Chip label="Categories" size="small" />
+            </Divider>
 
-            
             <Categories />
             {/* <Carousel /> */}
             <ProductCards />
+            
+            <Divider variant="middle" component="li">
+                <Chip label="Customer Reviews" size="small" />
+            </Divider>
+            
             <Reviews /><br></br><br></br>
             <Footer />
 

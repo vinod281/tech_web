@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cart from '../Cart/Cart';
 import { useNavigate } from 'react-router-dom';
+import './navbar.css'
 
 
 
@@ -66,7 +67,7 @@ export default function Navbar() {
       </nav>
 
       {/* Main Navbar */}
-      <nav className="p-4 bg-white shadow-lg">
+      <nav className="p-5 bg-white shadow-lg">
         <div className="container flex items-center justify-between mx-auto">
           {/* Logo */}
           <div className="text-2xl font-bold text-gray-800 cursor-pointer" onClick={handleHomeClick}>TechStore</div>
@@ -78,7 +79,7 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full px-4 py-2 pl-10 text-gray-800 rounded-full outline outline-2 outline-gray-300 focus:outline-gray-800"
+                className="w-full px-4 py-2 pl-10 text-gray-800 rounded-full outline outline-2 outline-gray-300 focus:outline-gray-800 "
               />
             </div>
           </div>
@@ -103,7 +104,7 @@ export default function Navbar() {
         </div>
 
         {/* Categories with Dropdowns */}
-        <div className="flex items-center justify-center mt-4 space-x-10">
+        <div className="relative flex items-center justify-center mt-4 space-x-10 overflow-x-auto overflow-y-hidden scrollbar-hide">
           {categories.map((category) => (
             <div
               key={category.name}
@@ -122,7 +123,7 @@ export default function Navbar() {
               {/* Dropdown Menu */}
               {activeDropdown === category.name && (
                 <div
-                  className="absolute left-0 z-50 w-48 mt-2 bg-white rounded-md shadow-md"
+                  className="absolute left-0 z-50 w-48 mt-2 bg-white rounded-md shadow-md top-full"
                   onClick={(e) => e.stopPropagation()} // Prevent click from closing the dropdown
                 >
                   {category.subItems.map((item) => (

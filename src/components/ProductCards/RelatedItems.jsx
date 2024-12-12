@@ -21,7 +21,7 @@ const products = [
     {
         id: 2,
         name: "Remax 20000mah",
-        imageUrl: "https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/products/8b9cc7c9808a81fc8db0eaf67a4d79d7_4a131036-d78e-48a7-8f01-3ff265a3a07f_1120x--1655727074.jpg",
+        imageUrl: "https://www.simplytek.lk/cdn/shop/files/SoundPEATS-Air4-Wireless-Earbuds_Simplytek_Srilanka-1.jpg?v=1694427458&width=610",
         price: "RS 2800.00",
         reviews: "18 reviews",
         rating: 5,
@@ -31,7 +31,7 @@ const products = [
     {
         id: 3,
         name: "Hohem Gimbal",
-        imageUrl: "https://i0.wp.com/gearz.lk/wp-content/uploads/2024/03/Phone-Gimbal-Stabilizer-iSteady-XE-2023-Version-XE-Black-_-GreyXE-Kit-Black_1.webp",
+        imageUrl: "https://earphones.lk/wp-content/uploads/2024/07/True-Wireless-Earphones-Noise-Cancelling-Sports-Earbuds-Smart-Touch-Screen-Microphone-in-Ear-Headphone.jpg",
         price: "RS 8000.00",
         reviews: "14 reviews",
         rating: 5,
@@ -194,7 +194,7 @@ const ProductCards = () => {
         <>
 
             <Divider variant="middle" component="li">
-                <Chip label="Top Rated Products" size="small" />
+                <Chip label="Related Items" size="small" />
             </Divider>
             <div className="max-w-screen-xl px-2 py-4 mx-auto sm:px-4 sm:py-8">
 
@@ -204,22 +204,6 @@ const ProductCards = () => {
                     ))}
                 </div>
             </div>
-
-
-            <Divider variant="middle" component="li">
-                <Chip label="Best Selling Products" size="small" />
-            </Divider>
-
-            <div className="max-w-screen-xl px-2 py-4 mx-auto sm:px-4 sm:py-8">
-                
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6">
-                    {products.map((product) => (
-                        <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
-                    ))}
-                </div>
-            </div>
-
-
 
 
             {notificationMessage && (
