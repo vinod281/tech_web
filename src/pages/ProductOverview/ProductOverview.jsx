@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import RelatedItems from "../../components/ProductCards/RelatedItems";
+import Divider from '@mui/material/Divider';
+import Chip from '@mui/material/Chip';
 
 const App = () => {
 
-  const [mainImage, setMainImage] = useState("https://i5.walmartimages.com/seo/VEATOOL-Bluetooth-Headphones-True-Wireless-Earbuds-65H-Playback-Power-Display-Earphones-Charging-Case-IPX7-Waterproof-in-Ear-Mic-TV-Smart-Phone-Compu_4fcdfe6c-8b6a-4cde-9d14-b2d02f026c7e.72bb21d7b7199d42acb8615ffbaa0470.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF"); // Default main image
+  const [mainImage, setMainImage] = useState("https://image.made-in-china.com/2f0j00kApVwBMhkWzi/Tws-F9-5-Wireless-Earbud-Stereo-Noise-Reduction-Headphone-Touch-Control-Earphone-Power-Bank-Headset-Support-All-Phone-F9-Earbuds.webp"); // Default main image
   const [selectedColor, setSelectedColor] = useState(""); // For tracking the selected color
 
   // Function to handle thumbnail click to change the main image
@@ -23,9 +26,9 @@ const App = () => {
     <>
       <Navbar />
 
-      <div className="bg-gray-50">
+      <div>
         {/* Product Details Section */}
-        <div className="py-12 bg-gray-50">
+        <div className="py-12">
           <div className="container grid grid-cols-1 gap-12 px-4 mx-auto md:grid-cols-2 lg:px-8">
             {/* Image Section */}
             <div className="flex space-x-6">
@@ -40,7 +43,7 @@ const App = () => {
                     <img
                       src={`/images/thumb${item}.jpg`} // Thumbnail images
                       alt={`Thumbnail ${item}`}
-                      className="object-cover w-20 h-20 cursor-pointer lg:w-32 lg:h-32" // Adjusted size for better alignment
+                      className="object-cover w-20 h-20 cursor-pointer lg:w-15 lg:h-15" // Adjusted size for better alignment
                     />
                   </div>
                 ))}
@@ -51,7 +54,7 @@ const App = () => {
                 <img
                   src={mainImage} // Dynamically change the image based on the selected thumbnail/color
                   alt="Main image"
-                  className="h-[600px] w-[full]   object-cover transition-transform duration-300 hover:scale-105"
+                  className="h-[600] w-[full]   object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
             </div>
@@ -60,15 +63,15 @@ const App = () => {
             <div className="flex flex-col justify-between">
               {/* Product Info */}
               <div>
-                <h1 className="text-3xl font-extrabold text-gray-800">
+                <h1 className="text-2xl font-extrabold text-gray-800">
                   F9 Wireless Earphones Bluetooth TWS Noise Reduction Headphone
                 </h1>
-                <p className="mt-2 text-4xl font-semibold text-red-500">LKR 2,450.07</p>
+                <p className="mt-2 text-2xl font-semibold text-red-500">LKR 2,450.07</p>
                 <p className="text-gray-500 line-through text-m">LKR 5,000.00</p>
                 <p className="font-medium text-green-600 text-m">Save LKR 2,550.00</p>
 
                 {/* Description */}
-                <p className="mt-6 leading-relaxed text-gray-800">
+                <p className="mt-2 leading-relaxed text-gray-800">
                   5+ pieces, extra 2% off Tax excluded, add at checkout if applicable.
                 </p>
 
@@ -78,8 +81,9 @@ const App = () => {
                   <div className="flex items-center space-x-4">
                     {/* Example Colors */}
                     {[
-                      { name: "White", img: "/images/white.jpg" },
-                      { name: "Black", img: "/images/black.jpg" },
+                      { name: "White", img: "https://image.made-in-china.com/2f0j00BdzqtFRCSMbJ/2024-New-Tws-F9-Gamin-Earphones-in-Ear-Headphones-HiFi-Game-Wireless-Earbuds-Noise-Cancelling-Tws-Earphones-Headphones.jpg" },
+                      { name: "Black", img: "https://image.made-in-china.com/2f0j00kApVwBMhkWzi/Tws-F9-5-Wireless-Earbud-Stereo-Noise-Reduction-Headphone-Touch-Control-Earphone-Power-Bank-Headset-Support-All-Phone-F9-Earbuds.webp" },
+
                     ].map((color, index) => (
                       <div
                         key={index}
@@ -102,12 +106,18 @@ const App = () => {
 
               {/* Buttons */}
               <div className="flex items-center mt-8 space-x-4">
-                <button className="px-6 py-3 text-lg font-semibold text-white transition-all bg-red-500 rounded-lg shadow-lg hover:bg-red-600">
-                  Buy Now
-                </button>
-                <button className="px-6 py-3 text-lg font-semibold text-gray-800 transition-all bg-gray-100 rounded-lg shadow-lg hover:bg-gray-200 outline outline-2 outline-gray-800 focus:outline-blue-500">
+                <a
+                  href="#"
+                  className="inline-block px-8 py-3 font-medium text-center text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-700"
+                >
+                  Checkout
+                </a>
+                <a
+                  href="#"
+                  className="inline-block px-8 py-3 font-medium text-center text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-700"
+                >
                   Add to Cart
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -121,10 +131,15 @@ const App = () => {
 
 
         {/* Specifications Section */}
-        <div className="py-8 bg-gray-100">
+
+        <Divider variant="middle" component="li">
+          <Chip label="Product Specifications" size="small" />
+        </Divider>
+
+        <div className="py-8">
           <div className="container px-4 mx-auto">
-            <h2 className="mb-4 text-lg font-semibold text-gray-800">Product Specifications</h2>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
+
+            <div className="p-6 bg-white rounded-lg ">
               <ul className="space-y-3 text-gray-600">
                 <li className="flex flex-col items-start sm:flex-row sm:items-center">
                   <span className="w-full font-medium text-gray-800 sm:w-32">Bluetooth version:</span>
@@ -162,10 +177,14 @@ const App = () => {
         </div>
 
         {/* Customer Reviews Section */}
+
+        <Divider variant="middle" component="li">
+          <Chip label="Customer Reviews" size="small" />
+        </Divider>
         <div className="py-8 bg-white">
           <div className="container px-4 mx-auto">
-            <h2 className="mb-6 text-xl font-semibold text-gray-800">Customer Reviews</h2>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
               {[{
                 name: "John Doe",
                 rating: 5, // 4 full stars + 1 half-star
@@ -177,6 +196,12 @@ const App = () => {
                 rating: 5, // 5 full stars
                 comment: "Absolutely love it!Great earbuds for the price! The connection is stable, and they are very comfortable even after wearing them for hours. The sound quality is good, although it could be a bit louder at maximum volume. Overall, a solid choice for casual listening.",
                 image: "https://as2.ftcdn.net/v2/jpg/03/83/25/83/1000_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg",
+              },
+              {
+                name: "John Doe",
+                rating: 5, // 4 full stars + 1 half-star
+                comment: "Great product! Highly recommend.These earbuds are amazing! The sound quality is crystal clear, and the bass is deep and rich. I also love the noise cancellation feature – it helps me focus while I work. Comfortable fit and long battery life make them perfect for daily use. Highly recommend!",
+                image: "https://as1.ftcdn.net/v2/jpg/02/43/12/34/1000_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
               },
 
               {
@@ -215,39 +240,12 @@ const App = () => {
           </div>
         </div>
 
+
+
+
+
         {/* Related Items Section */}
-        <div className="py-8 bg-gray-100">
-          <div className="container px-4 mx-auto">
-            <h2 className="mb-4 text-lg font-semibold">Related Items</h2>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-              {[
-                { name: "Smart Earbuds 2024", price: "LKR 1,999.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,501.00", img: "https://www.simplytek.lk/cdn/shop/files/SoundPEATS-Air4-Wireless-Earbuds_Simplytek_Srilanka-1.jpg?v=1694427458&width=610" },
-                { name: "Smart Eaurbuds 2023", price: "LKR 1,500.00", originalPrice: "LKR 2,800.00", discount: "Save LKR 1,300.00", img: "https://earphones.lk/wp-content/uploads/2024/07/True-Wireless-Earphones-Noise-Cancelling-Sports-Earbuds-Smart-Touch-Screen-Microphone-in-Ear-Headphone.jpg" },
-                { name: "Smart Watch X", price: "LKR 2,300.00", originalPrice: "LKR 4,000.00", discount: "Save LKR 1,700.00", img: "https://www.att.com/scmsassets/global/accessories/audio/samsung/samsung-galaxy-buds3-pro-wireless-earbuds/carousel/4317t-6.png" },
-                { name: "Smart Watch Pro", price: "LKR 3,000.00", originalPrice: "LKR 5,000.00", discount: "Save LKR 2,000.00", img: "https://earphones.lk/wp-content/uploads/2024/05/WH-CH720N-Wireless-simplytek-lk_2.webp" },
-                { name: "Smart Watch Sport", price: "LKR 1,700.00", originalPrice: "LKR 3,200.00", discount: "Save LKR 1,500.00", img: "https://img.drz.lazcdn.com/static/lk/p/d4bdfbfdc6f2c9b2c61f345ce128248b.jpg_720x720q80.jpg" },
-                { name: "Smart Watch Lite", price: "LKR 2,100.00", originalPrice: "LKR 3,700.00", discount: "Save LKR 1,600.00", img: "https://cdn.shopify.com/s/files/1/2794/1798/files/emFloearphonebuds720x.png?v=1691980192" },
-                { name: "Smart Watch Ultra", price: "LKR 3,500.00", originalPrice: "LKR 6,000.00", discount: "Save LKR 2,500.00", img: "https://resource.logitechg.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x/pro-headset-gallery-1.png?v=1" },
-                { name: "Smart Watch Classic", price: "LKR 2,000.00", originalPrice: "LKR 3,500.00", discount: "Save LKR 1,500.00", img: "https://www.mytrendyphone.eu/images/M47-Earclip-Bone-Conduction-Wireless-Headphone-with-Mic-Bluetooth-5-3-Gaming-Headset-Noise-Reduction-Sport-Earphone-NudeNone-04122023-00-p.webp" },
-              ].map((product, index) => (
-                <div key={index} className="p-4 bg-white rounded-md shadow-md hover:shadow-lg">
-                  {/* Wrap the image in an anchor tag to make it clickable */}
-                  <a href={`/product/${product.name.replace(/\s+/g, '-').toLowerCase()}`} className="block">
-                    <img
-                      src={product.img} // Dynamically use the image path for each product
-                      alt={product.name}
-                      className="object-cover w-full h-48 mb-2 rounded-md md:h-56 lg:h-64" // Adjusted height
-                    />
-                  </a>
-                  <h3 className="text-sm font-medium">{product.name}</h3>
-                  <p className="font-bold text-red-500">{product.price}</p>
-                  <p className="text-sm text-gray-400 line-through">{product.originalPrice}</p>
-                  <p className="text-sm text-green-500">{product.discount}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <RelatedItems />
 
 
 

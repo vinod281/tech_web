@@ -12,7 +12,7 @@ const products = [
         id: 1,
         name: "Samsung Buds (clone)",
         imageUrl: "https://png.pngtree.com/png-vector/20240513/ourmid/pngtree-sleek-black-charging-case-with-wireless-earbuds-inside-png-image_12456729.png",
-        price: "RS 3600",
+        price: "RS 3600.00",
         reviews: "38 reviews",
         rating: 5,
         stock: true,
@@ -21,8 +21,8 @@ const products = [
     {
         id: 2,
         name: "Remax 20000mah",
-        imageUrl: "https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/products/8b9cc7c9808a81fc8db0eaf67a4d79d7_4a131036-d78e-48a7-8f01-3ff265a3a07f_1120x--1655727074.jpg",
-        price: "RS 2800",
+        imageUrl: "https://www.simplytek.lk/cdn/shop/files/SoundPEATS-Air4-Wireless-Earbuds_Simplytek_Srilanka-1.jpg?v=1694427458&width=610",
+        price: "RS 2800.00",
         reviews: "18 reviews",
         rating: 5,
         stock: false,
@@ -31,8 +31,8 @@ const products = [
     {
         id: 3,
         name: "Hohem Gimbal",
-        imageUrl: "https://i0.wp.com/gearz.lk/wp-content/uploads/2024/03/Phone-Gimbal-Stabilizer-iSteady-XE-2023-Version-XE-Black-_-GreyXE-Kit-Black_1.webp",
-        price: "RS 8000",
+        imageUrl: "https://earphones.lk/wp-content/uploads/2024/07/True-Wireless-Earphones-Noise-Cancelling-Sports-Earbuds-Smart-Touch-Screen-Microphone-in-Ear-Headphone.jpg",
+        price: "RS 8000.00",
         reviews: "14 reviews",
         rating: 5,
         stock: true,
@@ -42,7 +42,7 @@ const products = [
         id: 4,
         name: "Beats Headphone",
         imageUrl: "https://www.beatsbydre.com/content/dam/beats/web/product/headphones/solo4-wireless/pdp/product-carousel/slate-blue/blue-01-solo4.jpg",
-        price: "RS 3200",
+        price: "RS 3200.00",
         reviews: "21 reviews",
         rating: 4,
         stock: true,
@@ -53,7 +53,7 @@ const products = [
         id: 5,
         name: "Smart-Watch-x8",
         imageUrl: "https://gadgetasia.lk/wp-content/uploads/2024/06/sri-lanka-gadget-asia-lk-smart-watch-x8-unique-combination-best-price.png",
-        price: "RS 5500",
+        price: "RS 5500.00",
         reviews: "21 reviews",
         rating: 5,
         stock: true,
@@ -63,7 +63,7 @@ const products = [
         id: 6,
         name: "Organize Phone Holder",
         imageUrl: "https://static-01.daraz.lk/p/20188a91cf85429e01ee9172d206ece5.jpg",
-        price: "RS 1500",
+        price: "RS 1500.00",
         reviews: "21 reviews",
         rating: 3,
         stock: true,
@@ -73,7 +73,7 @@ const products = [
         id: 7,
         name: "Air Pods Pro (clone)",
         imageUrl: "https://static-01.daraz.lk/p/5d09b5da0c238f6e3aeed01be71b6884.jpg",
-        price: "RS 3900",
+        price: "RS 3900.00",
         reviews: "21 reviews",
         rating: 4,
         stock: false,
@@ -83,7 +83,7 @@ const products = [
         id: 8,
         name: "Realme Buds T100 Wireless Earbuds",
         imageUrl: "https://www.simplytek.lk/cdn/shop/files/Realme-Buds-T100-Earbuds-SimplyTek-LK-1.png?v=1694426071",
-        price: "RS 3900",
+        price: "RS 3900.00",
         reviews: "21 reviews",
         rating: 4,
         stock: true,
@@ -154,7 +154,7 @@ const ProductCards = () => {
                     </div>
                     <span className="ml-2 text-sm text-gray-500">{product.reviews}</span>
                 </div>
-                <p className="mt-2 text-lg font-semibold">{product.price}.00</p>
+                <p className="mt-2 text-lg font-semibold">{product.price}</p>
 
                 {product.stock ? (
                     <span
@@ -194,7 +194,7 @@ const ProductCards = () => {
         <>
 
             <Divider variant="middle" component="li">
-                <Chip label="Top Rated Products" size="small" />
+                <Chip label="Related Items" size="small" />
             </Divider>
             <div className="max-w-screen-xl px-2 py-4 mx-auto sm:px-4 sm:py-8">
 
@@ -204,22 +204,6 @@ const ProductCards = () => {
                     ))}
                 </div>
             </div>
-
-
-            <Divider variant="middle" component="li">
-                <Chip label="Best Selling Products" size="small" />
-            </Divider>
-
-            <div className="max-w-screen-xl px-2 py-4 mx-auto sm:px-4 sm:py-8">
-                
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-6">
-                    {products.map((product) => (
-                        <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
-                    ))}
-                </div>
-            </div>
-
-
 
 
             {notificationMessage && (

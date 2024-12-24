@@ -5,6 +5,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Cart from '../Cart/Cart';
 import { useNavigate } from 'react-router-dom';
+import './navbar.css'
+
 
 
 
@@ -12,12 +14,12 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
   const [cartOpen, setCartOpen] = useState(false);
-    const [cartKey, setCartKey] = useState(0); 
+  const [cartKey, setCartKey] = useState(0);
 
-    const handleOpenCart = () => {
-        setCartKey((prevKey) => prevKey + 1); 
-        setCartOpen(true); 
-    };
+  const handleOpenCart = () => {
+    setCartKey((prevKey) => prevKey + 1);
+    setCartOpen(true);
+  };
 
   const handleDropdownToggle = (category) => {
     setActiveDropdown((prev) => (prev === category ? null : category));
@@ -36,15 +38,19 @@ export default function Navbar() {
 
   const navigate = useNavigate(); // Initialize navigate
 
-    const handleLoginClick = () => {
-        navigate('/login'); // Navigate to the login page
-    };
-
-    const handleHomeClick = () => {
-      navigate('/home'); // Navigate to the login page
+  const handleLoginClick = () => {
+    navigate('/login'); // Navigate to the login page
   };
-  
-  
+
+  const handleHomeClick = () => {
+    navigate('/home'); // Navigate to the login page
+  };
+
+  const handleAccountClick = () => {
+    navigate('/account'); // Navigate to the login page
+  };
+
+
 
   return (
     <div>
@@ -56,15 +62,15 @@ export default function Navbar() {
         <div className="space-x-6">
           <a href="/" className="text-white hover:text-gray-400">Home</a>
           <a href="#contact" className="text-white hover:text-gray-400">Contact</a>
-          <a href="#about" className="text-white hover:text-gray-400">About</a>
+          <a href="/about" className="text-white hover:text-gray-400">About</a>
         </div>
       </nav>
 
       {/* Main Navbar */}
-      <nav className="p-4 bg-white shadow-lg">
+      <nav className="p-5 bg-white shadow-lg">
         <div className="container flex items-center justify-between mx-auto">
           {/* Logo */}
-          <div className="text-2xl font-bold text-gray-800 cursor-pointer"  onClick={handleHomeClick}>TechStore</div>
+          <div className="text-2xl font-bold text-gray-800 cursor-pointer" onClick={handleHomeClick}>TechStore</div>
 
           {/* Search Bar */}
           <div className="flex items-center w-full max-w-3xl space-x-2">
@@ -73,7 +79,7 @@ export default function Navbar() {
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full px-4 py-2 pl-10 text-gray-800 rounded-full outline outline-2 outline-gray-300 focus:outline-gray-800"
+                className="w-full px-4 py-2 pl-10 text-gray-800 rounded-full outline outline-2 outline-gray-300 focus:outline-gray-800 "
               />
             </div>
           </div>
@@ -82,13 +88,13 @@ export default function Navbar() {
           <div className="flex items-center ml-4 space-x-4">
             <div>
 
-            <button onClick={handleOpenCart} className="text-gray-600">
-                    <ShoppingCartOutlinedIcon />
-                </button>
+              <button onClick={handleOpenCart} className="text-gray-600">
+                <ShoppingCartOutlinedIcon />
+              </button>
             </div>
-                {cartOpen && <Cart key={cartKey} open={cartOpen} setOpen={setCartOpen} />}
-            
-            <button className="text-gray-600">
+            {cartOpen && <Cart key={cartKey} open={cartOpen} setOpen={setCartOpen} />}
+
+            <button className="text-gray-600" onClick={handleAccountClick} >
               <i className="fa-regular fa-user"></i>
             </button>
             <button className="px-4 py-2 text-white bg-gray-900 rounded hover:bg-gray-800" onClick={handleLoginClick}>
@@ -98,7 +104,7 @@ export default function Navbar() {
         </div>
 
         {/* Categories with Dropdowns */}
-        <div className="flex items-center justify-center mt-4 space-x-10">
+        <div className="relative flex items-center justify-center mt-4 space-x-10 overflow-x-auto overflow-y-hidden scrollbar-hide">
           {categories.map((category) => (
             <div
               key={category.name}
@@ -117,7 +123,7 @@ export default function Navbar() {
               {/* Dropdown Menu */}
               {activeDropdown === category.name && (
                 <div
-                  className="absolute left-0 z-50 w-48 mt-2 bg-white rounded-md shadow-md"
+                  className="absolute left-0 z-50 w-48 mt-2 bg-white rounded-md shadow-md top-full"
                   onClick={(e) => e.stopPropagation()} // Prevent click from closing the dropdown
                 >
                   {category.subItems.map((item) => (
