@@ -61,7 +61,7 @@ export default function Navbar() {
         </div>
         <div className="space-x-6">
           <a href="/" className="text-white hover:text-gray-400">Home</a>
-          <a href="#contact" className="text-white hover:text-gray-400">Contact</a>
+          <a href="/contact" className="text-white hover:text-gray-400">Contact</a>
           <a href="/about" className="text-white hover:text-gray-400">About</a>
         </div>
       </nav>

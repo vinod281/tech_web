@@ -23,6 +23,8 @@ function Home() {
             <Navbar />
 
             <Banner />
+
+            
             <Divider variant="middle" component="li">
                 <Chip label="Categories" size="small" />
             </Divider>
@@ -30,10 +32,18 @@ function Home() {
             <Categories />
             {/* <Carousel /> */}
             <ProductCards />
-            
+
+            <div className='m-10'>
+
             <Divider variant="middle" component="li">
                 <Chip label="Customer Reviews" size="small" />
             </Divider>
+
+            </div>
+            
+            
+
+            
             
             <Reviews /><br></br><br></br>
             <Footer />
