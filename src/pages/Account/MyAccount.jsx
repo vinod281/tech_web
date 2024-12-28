@@ -5,24 +5,32 @@ import Footer from '../../components/Footer/Footer';
 const MyAccount = () => {
     const [activeTab, setActiveTab] = useState('orders');
 
+    const orderList = [
+        { orderNumber: '12345', items: 'Gimble', orderedDate: '2023-10-01', total: '$100.00', status: 'Shipped' },
+        { orderNumber: '12346', items: ['Headphone', 'Airpod', 'Headphone', 'Airpod', 'Headphone', 'Airpod'], orderedDate: '2023-10-02', total: '$150.00', status: 'Processing' },
+        { orderNumber: '12347', orderedDate: '2023-10-03', total: '$200.00', status: 'Delivered' },
+        { orderNumber: '12348', orderedDate: '2023-10-04', total: '$250.00', status: 'Cancelled' },
+    ];
+
+
     const orders = [
         {
             orderNumber: '7681029',
-            shippedDate: '30 March 2019',
+            orderedDate: '30 March 2019',
             total: '$78.00',
             status: 'Delivered',
             imgSrc: 'https://cdn.sandberg.world/products/images/lg/420-75_lg.jpg',
         },
         {
             orderNumber: '7681030',
-            shippedDate: '30 March 2019',
+            orderedDate: '30 March 2019',
             total: '$60.00',
             status: 'Out for delivery',
             imgSrc: 'https://technoor.me/wp-content/uploads/2024/09/pixel-watch-3.png',
         },
         {
             orderNumber: '7681031',
-            shippedDate: '30 March 2019',
+            orderedDate: '30 March 2019',
             total: '$90.00',
             status: 'Processing',
             imgSrc: 'https://m.media-amazon.com/images/I/619gDUPcbNL.jpg',
@@ -51,11 +59,11 @@ const MyAccount = () => {
                         <div className="flex space-x-6 border-b-2 border-gray-200">
                             <button
                                 onClick={() => setActiveTab('orders')}
-                                className={`py-2 px-4 font-semibold ${activeTab === 'orders' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+                                className={`py-2 px-4 font-semibold  ${activeTab === 'orders' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
                             >
-                                Orders
+                                My Orders
                             </button>
-                            
+
                             <button
                                 onClick={() => setActiveTab('personalData')}
                                 className={`py-2 px-4 font-semibold ${activeTab === 'personalData' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
@@ -66,7 +74,14 @@ const MyAccount = () => {
                                 onClick={() => setActiveTab('addresses')}
                                 className={`py-2 px-4 font-semibold ${activeTab === 'addresses' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
                             >
-                                Addresses
+                                Customer Orders
+                            </button>
+
+                            <button
+                                onClick={() => setActiveTab('addresses2')}
+                                className={`py-2 px-4 font-semibold ${activeTab === 'addresses2' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+                            >
+                                Product Settings
                             </button>
                         </div>
                     </div>
@@ -86,7 +101,7 @@ const MyAccount = () => {
                                             />
                                             <div>
                                                 <div className="font-semibold">Order number: {order.orderNumber}</div>
-                                                <div className="text-sm text-gray-600">Shipped date: {order.shippedDate}</div>
+                                                <div className="text-sm text-gray-600">Ordered date: {order.orderedDate}</div>
                                                 <div className="text-sm text-gray-600">Total: {order.total}</div>
                                                 <span className={`text-sm ${order.status === 'Delivered' ? 'inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 ' : order.status === 'Out for delivery' ? 'inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-inset ring-yellow-600/20' : 'inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10'}`}>
                                                     Status: {order.status}
@@ -94,8 +109,8 @@ const MyAccount = () => {
 
                                             </div>
                                         </div>
-                                        <button className="text-blue-500">
-                                            {order.status === 'Delivered' ? 'View Order' : order.status === 'Out for delivery' ? 'Track Order' : 'Cancel Order'}
+                                        <button className="px-3 py-1 text-xs font-medium text-gray-900 border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 ">
+                                            View Order
                                         </button>
                                     </div>
                                 ))}
@@ -139,7 +154,7 @@ const MyAccount = () => {
                                 <div>
                                     <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
                                         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                                        
+
                                             <h2 className="mt-2 font-bold tracking-tight text-center text-gray-700 text-2xl/9">
                                                 Update Your Account
                                             </h2>
@@ -302,11 +317,6 @@ const MyAccount = () => {
 
 
 
-
-
-
-
-
                                                         </div>
 
                                                         <div className='mt-6'>
@@ -373,23 +383,7 @@ const MyAccount = () => {
                                                         </div>
 
 
-
-
-
-
-
-
-
                                                     </div>
-
-
-
-
-
-
-
-
-
 
 
                                                 </div>
@@ -406,9 +400,110 @@ const MyAccount = () => {
 
                         {activeTab === 'addresses' && (
                             <div>
-                                <div className="mb-6 text-lg font-semibold">Addresses</div>
+                                <div className="mb-6 text-lg font-semibold">Customer Orders</div>
                                 {/* Add Addresses form here */}
-                                <div>Your addresses go here!</div>
+                                {/* table to show the orders */}
+                                <div>
+
+
+
+
+
+
+                                    <table className="min-w-full divide-y divide-gray-200">
+                                        <thead className="bg-gray-50">
+                                            <tr>
+                                                <th
+                                                    scope="col"
+                                                    className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                                >
+                                                    Order Number
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                                >
+                                                    Ordered Items
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                                >
+                                                    Ordered Date
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                                >
+                                                    Total
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                                >
+                                                    Status
+                                                </th>
+                                                <th
+                                                    scope="col"
+                                                    className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                                                >
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody className="bg-white divide-y divide-gray-200">
+                                            {orderList.map((order) => (
+                                                <tr key={order.orderNumber}>
+                                                    <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{order.orderNumber}</td>
+                                                    <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                        {Array.isArray(order.items) ? (
+                                                            order.items.map((item, index) => (
+                                                                <div key={index}>{item}</div>
+                                                            ))
+                                                        ) : (
+                                                            <div>{order.items}</div>
+                                                        )}
+                                                    </td>
+                                                    <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{order.orderedDate}</td>
+                                                    <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{order.total}</td>
+                                                    <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{order.status}</td>
+                                                    <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+
+                                                        <div className='flex gap-5'>
+
+                                                            <select>
+                                                                <option value="view">Ordered</option>
+                                                                <option value="track">Processing</option>
+                                                                <option value="cancel">Delivered</option>
+                                                            </select>
+
+                                                            <button className="px-3 py-1 text-xs font-medium text-gray-900 border border-gray-300 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300 ">
+                                                                Save changes
+                                                            </button>
+
+                                                        </div>
+
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+
+
+                                    </table>
+
+
+
+
+                                </div>
+                            </div>
+                        )}
+
+                        {activeTab === 'addresses2' && (
+                            <div>
+                                <div className="mb-6 text-lg font-semibold">Product Settings</div>
+                                {/* Add Addresses form here */}
+                                <div>Your addresses go here! new 1</div>
                             </div>
                         )}
                     </div>
