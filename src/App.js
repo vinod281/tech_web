@@ -15,21 +15,21 @@ import Account from './pages/Account/MyAccount';
 function App() {
   return (
     <BrowserRouter>
+
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product-overview" element={<ProductOverview />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
-
         <Route path="/payment" element={<Payment/>} /> 
         <Route path='/account' element={<Account/>} />
-
         <Route path="/contact" element={<ContactUs />} /> 
 
-
       </Routes>
+
     </BrowserRouter>
   );
 }
