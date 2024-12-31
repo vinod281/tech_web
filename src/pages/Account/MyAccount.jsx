@@ -7,7 +7,7 @@ import MyOrders from './MyOrders';
 
 const MyAccount = () => {
     const [activeTab, setActiveTab] = useState('orders');
-    
+
     return (
 
         <>
@@ -44,10 +44,17 @@ const MyAccount = () => {
                             </button>
 
                             <button
-                                onClick={() => setActiveTab('addresses2')}
-                                className={`py-2 px-4 font-semibold ${activeTab === 'addresses2' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+                                onClick={() => setActiveTab('addProduct')}
+                                className={`py-2 px-4 font-semibold ${activeTab === 'addProduct' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
                             >
-                                Product Settings
+                                Add Product
+                            </button>
+                            
+                            <button
+                                onClick={() => setActiveTab('updateProduct')}
+                                className={`py-2 px-4 font-semibold ${activeTab === 'updateProduct' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+                            >
+                                Update Product
                             </button>
                         </div>
                     </div>
@@ -60,25 +67,32 @@ const MyAccount = () => {
                             </div>
                         )}
 
-                        
+
                         {activeTab === 'personalData' && (
                             <div>
                                 <div className="text-lg font-semibold ">Personal Data</div>
-                                <PersonalData/>
+                                <PersonalData />
                             </div>
                         )}
 
                         {activeTab === 'custOrder' && (
                             <div>
                                 <div className="mb-6 text-lg font-semibold">Customer Orders</div>
-                                <CustomerOrders/>
-                                
+                                <CustomerOrders />
+
                             </div>
                         )}
 
-                        {activeTab === 'addresses2' && (
+                        {activeTab === 'addProduct' && (
                             <div>
-                                <div className="mb-6 text-lg font-semibold">Product Settings</div>
+                                <div className="mb-6 text-lg font-semibold">Add Product</div>
+                                <div>Your addresses go here! new 1</div>
+                            </div>
+                        )}
+
+                        {activeTab === 'updateProduct' && (
+                            <div>
+                                <div className="mb-6 text-lg font-semibold">Update Product</div>
                                 <div>Your addresses go here! new 1</div>
                             </div>
                         )}
