@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import CustomerOrders from './CustomerOrders';
 import PersonalData from './PersonalData';
 import MyOrders from './MyOrders';
+import AddProduct from './AddProduct';
 
 const MyAccount = () => {
     const [activeTab, setActiveTab] = useState('orders');
@@ -86,7 +87,7 @@ const MyAccount = () => {
                         {activeTab === 'addProduct' && (
                             <div>
                                 <div className="mb-6 text-lg font-semibold">Add Product</div>
-                                <div>Your addresses go here! new 1</div>
+                                <AddProduct />
                             </div>
                         )}
 
