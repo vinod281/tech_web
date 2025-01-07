@@ -1,7 +1,6 @@
 import React from 'react'
+import { Input, Typography } from "@material-tailwind/react";
 
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
 
 export default function AddProduct() {
 
@@ -23,16 +22,267 @@ export default function AddProduct() {
 
     <>
       <div className='flex flex-wrap justify-evenly'>
-        <div className="flex items-center justify-between mb-6">
+        <div>
 
-        
-                    
-                
-                
-             
+
+
+
+          <form action="#" method="POST" className="space-y-6">
+
+            <div className='flex flex-wrap justify-center gap-20'>
+
+
+              <div>
+                <div className='mb-6'>
+
+                  <label htmlFor="title" className="block font-medium text-gray-900 text-sm/6">
+                    Product Title
+                  </label>
+
+
+                  <div className="mt-2">
+                    <input
+                      id="title"
+                      name="title"
+                      type="text"
+                      required
+                      autoComplete="name"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      placeholder='Enter your product title or name'
+
+                    />
+                  </div>
+
+                </div>
+
+
+                <div className='flex flex-wrap gap-5'>
+
+
+
+                  <div>
+
+                    <label htmlFor="category" className="block font-medium text-gray-900 text-sm/6">
+                      Category
+                    </label>
+                    <div className="mt-2">
+                      <select
+                        id="category"
+                        name="category"
+                        required
+                        className="block h-9 w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      >
+                        <option>Select Product Category</option>
+                        <option>Headphone</option>
+                        <option>Charger</option>
+                        <option>Back Cover</option>
+                        <option>Cable</option>
+                        <option>Power Bank</option>
+                      </select>
+                    </div>
+
+
+
+                  </div>
+
+                  <div>
+
+                    <label htmlFor="offer" className="block font-medium text-gray-900 text-sm/6">
+                      Offer
+                    </label>
+
+
+                    <div className="mt-2">
+                      <input
+                        id="offer"
+                        name="offer"
+                        type="number"
+                        required
+                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+
+                      />
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+                <div className='mt-6'>
+
+                  <label htmlFor="email" className="block font-medium text-gray-900 text-sm/6">
+                    Email Address
+                  </label>
+
+
+                  <div className="mt-2">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      autoComplete="email"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                    />
+                  </div>
+
+                </div>
+
+
+
+
+
+              </div>
+
+
+              <div>
+
+                <div className='mb-6'>
+
+                  <label htmlFor="title" className="block font-medium text-gray-900 text-sm/6">
+                    Description
+                  </label>
+
+
+                  <div className="mt-2">
+                    <input
+                      id="title"
+                      name="title"
+                      type="text"
+                      required
+                      autoComplete="name"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      placeholder='Enter your product title or name'
+
+                    />
+                  </div>
+
+                </div>
+
+                <div className='flex flex-wrap gap-5'>
+
+                  <div>
+
+                    <label htmlFor="postal" className="block font-medium text-gray-900 text-sm/6">
+                      Postal Code
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        id="postal"
+                        name="postal"
+                        type="text"
+                        required
+                        autoComplete="postal"
+                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      />
+                    </div>
+
+
+
+                  </div>
+
+                  <div>
+
+                    <label htmlFor="tel" className="block font-medium text-gray-900 text-sm/6">
+                      Telephone
+                    </label>
+
+
+                    <div className="mt-2">
+                      <input
+                        id="tel"
+                        name="tel"
+                        type="text"
+                        required
+                        autoComplete="tel"
+                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      />
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+                <div className='mt-6'>
+
+                  <label htmlFor="district" className="block font-medium text-gray-900 text-sm/6">
+                    District
+                  </label>
+
+
+                  <div className="mt-2">
+                    <input
+                      id="district"
+                      name="district"
+                      type="district"
+                      required
+                      autoComplete="district"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                    />
+                  </div>
+
+                </div>
+
+                <div className='mt-6'>
+
+                  <label htmlFor="address" className="block font-medium text-gray-900 text-sm/6">
+                    Address
+                  </label>
+
+
+                  <div className="mt-2">
+                    <input
+                      id="address"
+                      name="address"
+                      type="text"
+                      required
+                      autoComplete="address"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                    />
+                  </div>
+
+                </div>
+
+
+
+                <div className='flex justify-end gap-5 mt-10'>
+
+
+
+                  <button
+                    type="submit"
+                    className="  flex w-1/4 justify-center rounded-md bg-gray-700  hover:bg-gray-900 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Update
+                  </button>
+
+                  <button
+                    type="reset"
+                    className=" flex w-1/4 justify-center rounded-md bg-gray-700  hover:bg-gray-900 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Clear
+                  </button>
+
+
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+
+          </form>
+
+
+
         </div>
-        
-        <div className="">
+
+        <div className="flex items-center justify-between mb-6">
 
           <div className="relative w-64 p-4 transition-transform duration-300 border rounded-lg hover:scale-105">
 
