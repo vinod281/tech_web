@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Input, Typography } from "@material-tailwind/react";
 
 
@@ -15,6 +15,13 @@ export default function AddProduct() {
     stock: true,
     offer: "10% Off"
   }
+
+  const [images, setImages] = useState([]);
+
+  const handleImageChange = (event) => {
+    const files = Array.from(event.target.files); // Convert FileList to an array
+    setImages((prevImages) => [...prevImages, ...files]);
+  };
 
 
   return (
@@ -87,6 +94,126 @@ export default function AddProduct() {
 
                   <div>
 
+                    <label htmlFor="subCategory" className="block font-medium text-gray-900 text-sm/6">
+                      Sub category
+                    </label>
+                    <div className="mt-2">
+                      <select
+                        id="subCategory"
+                        name="subCategory"
+                        required
+                        className="block h-9 w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      >
+                        <option>Select Sub Category</option>
+                        <option>Headphone</option>
+                        <option>Charger</option>
+                        <option>Back Cover</option>
+                        <option>Cable</option>
+                        <option>Power Bank</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+
+
+
+                <div className='mt-6'>
+
+                  <label htmlFor="title" className="block font-medium text-gray-900 text-sm/6">
+                    Description
+                  </label>
+
+
+                  <div className="mt-2">
+                    <textarea
+                      id="title"
+                      name="title"
+                      type="text"
+                      rows={2}
+                      required
+                      autoComplete="name"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      placeholder='Enter your product description here'
+
+                    />
+                  </div>
+
+
+                </div>
+
+
+
+
+
+              </div>
+
+
+              <div>
+
+                <div className='mb-6'>
+
+                  <label htmlFor="title" className="block font-medium text-gray-900 text-sm/6">
+                    Specifications
+                  </label>
+
+
+                  <div className="mt-2">
+                    <textarea
+                      id="title"
+                      name="title"
+                      type="text"
+                      rows={4}
+                      required
+                      autoComplete="name"
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      placeholder='Enter your product specifications here'
+
+                    />
+                  </div>
+
+                </div>
+
+                <div className='mb-6'>
+
+                <label htmlFor="title" className="block font-medium text-gray-900 text-sm/6">
+                    Images
+                  </label>
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*" // Restrict to image files
+                    onChange={handleImageChange}
+                    className='font-medium text-gray-900 rounded-md text-sm/6'
+                  />
+
+                  {images.length > 0 && (
+                    <div className="mt-4">
+                      <h3>Preview:</h3>
+                      <div className="flex flex-wrap gap-4">
+                        {images.map((image, index) => (
+                          <div key={index} className="w-24 h-24 overflow-hidden rounded">
+                            <img
+                              src={URL.createObjectURL(image)} // Create a temporary URL for preview
+                              alt={`preview-${index}`}
+                              className="object-cover w-full h-full"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                </div>
+
+                <div className='flex flex-wrap gap-5'>
+
+                  <div>
+
                     <label htmlFor="offer" className="block font-medium text-gray-900 text-sm/6">
                       Offer
                     </label>
@@ -103,81 +230,6 @@ export default function AddProduct() {
                       />
                     </div>
 
-                  </div>
-
-                </div>
-
-
-
-                <div className='mt-6'>
-
-                  <label htmlFor="email" className="block font-medium text-gray-900 text-sm/6">
-                    Email Address
-                  </label>
-
-
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
-                    />
-                  </div>
-
-                </div>
-
-
-
-
-
-              </div>
-
-
-              <div>
-
-                <div className='mb-6'>
-
-                  <label htmlFor="title" className="block font-medium text-gray-900 text-sm/6">
-                    Description
-                  </label>
-
-
-                  <div className="mt-2">
-                    <input
-                      id="title"
-                      name="title"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
-                      placeholder='Enter your product title or name'
-
-                    />
-                  </div>
-
-                </div>
-
-                <div className='flex flex-wrap gap-5'>
-
-                  <div>
-
-                    <label htmlFor="postal" className="block font-medium text-gray-900 text-sm/6">
-                      Postal Code
-                    </label>
-                    <div className="mt-2">
-                      <input
-                        id="postal"
-                        name="postal"
-                        type="text"
-                        required
-                        autoComplete="postal"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
-                      />
-                    </div>
-
 
 
                   </div>
@@ -185,7 +237,7 @@ export default function AddProduct() {
                   <div>
 
                     <label htmlFor="tel" className="block font-medium text-gray-900 text-sm/6">
-                      Telephone
+                      Active?
                     </label>
 
 
@@ -193,11 +245,18 @@ export default function AddProduct() {
                       <input
                         id="tel"
                         name="tel"
-                        type="text"
+                        type="checkbox"
                         required
                         autoComplete="tel"
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+
                       />
+
+                      <label htmlFor="tel" className="ml-2 font-medium text-gray-900 text-sm/6">
+                        Set as active
+                      </label>
+
+
+
                     </div>
 
                   </div>
@@ -205,47 +264,6 @@ export default function AddProduct() {
 
 
                 </div>
-
-                <div className='mt-6'>
-
-                  <label htmlFor="district" className="block font-medium text-gray-900 text-sm/6">
-                    District
-                  </label>
-
-
-                  <div className="mt-2">
-                    <input
-                      id="district"
-                      name="district"
-                      type="district"
-                      required
-                      autoComplete="district"
-                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
-                    />
-                  </div>
-
-                </div>
-
-                <div className='mt-6'>
-
-                  <label htmlFor="address" className="block font-medium text-gray-900 text-sm/6">
-                    Address
-                  </label>
-
-
-                  <div className="mt-2">
-                    <input
-                      id="address"
-                      name="address"
-                      type="text"
-                      required
-                      autoComplete="address"
-                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
-                    />
-                  </div>
-
-                </div>
-
 
 
                 <div className='flex justify-end gap-5 mt-10'>
