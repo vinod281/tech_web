@@ -1,7 +1,11 @@
 import React from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const CheckoutPage = () => {
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen py-6 bg-gray-100">
       <div className="container mx-auto">
         <div className="flex flex-col gap-6 lg:flex-row">
@@ -137,6 +141,9 @@ const CheckoutPage = () => {
         </div>
       </div>
     </div>
+
+    <Footer />
+    </>
   );
 };
 

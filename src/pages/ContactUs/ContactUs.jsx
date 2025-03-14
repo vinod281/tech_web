@@ -1,79 +1,83 @@
 import React, { useState } from 'react';
 import { FaMapMarkerAlt, FaUser, FaEnvelope, FaPhone, FaQuestionCircle, FaShoppingCart, FaComment } from 'react-icons/fa';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 
 const ContactUs = () => {
     const [showAnswer1, setShowAnswer1] = useState(false);
     const [showAnswer2, setShowAnswer2] = useState(false);
-    const [showAnswer3, setShowAnswer3] = useState(false);  
-    const [showAnswer4, setShowAnswer4] = useState(false);  
+    const [showAnswer3, setShowAnswer3] = useState(false);
+    const [showAnswer4, setShowAnswer4] = useState(false);
 
-    
+
 
     return (
+        <>
+        <Navbar />
         <div className="min-h-screen bg-gray-100">
-          {/* Contact Us Header */}
-<div className="py-10 text-center text-black">
-    <h1 className="text-4xl font-bold">Contact Us</h1>
-    <p className="mt-2 text-lg">Stay in Touch With Us! Contact Us For Any Inquiries Or Questions </p>
-    <p className="text-lg">You May Have.</p>
-</div>
+            {/* Contact Us Header */}
+            <div className="py-10 text-center text-black">
+                <h1 className="text-4xl font-bold">Contact Us</h1>
+                <p className="mt-2 text-lg">Stay in Touch With Us! Contact Us For Any Inquiries Or Questions </p>
+                <p className="text-lg">You May Have.</p>
+            </div>
 
-{/* Store Locator Section */}
-<div className="max-w-6xl px-4 py-10 mx-auto">
-  <h2 className="mb-6 text-3xl font-semibold text-gray-800">Store Locator</h2>
-  <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-    {/* Left Section - Text */}
-    <div className="flex items-start mb-6">
-      <FaMapMarkerAlt className="mr-4 text-2xl text-red-500" />
-      <div>
-        <h3 className="text-xl font-medium">Visit Our Showroom</h3>
-        <a 
-          href="https://www.google.com/maps?q=No.1,+Thimbirigasyaya+Road,+Colombo+05,+Sri+Lanka" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:underline"
-        >
-          TechStore - Thimbirigasyaya
-        </a>
-        <br />
-        
-        
-        <a 
-          href="https://www.google.com/maps?q=No.1,+Thimbirigasyaya+Road,+Colombo+05,+Sri+Lanka" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:underline"
-        >
-          No.1, Thimbirigasyaya Road, Colombo 05, Sri Lanka
-        </a><br></br><br></br>
+            {/* Store Locator Section */}
+            <div className="max-w-6xl px-4 py-10 mx-auto">
+                <h2 className="mb-6 text-3xl font-semibold text-gray-800">Store Locator</h2>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+                    {/* Left Section - Text */}
+                    <div className="flex items-start mb-6">
+                        <FaMapMarkerAlt className="mr-4 text-2xl text-red-500" />
+                        <div>
+                            <h3 className="text-xl font-medium">Visit Our Showroom</h3>
+                            <a
+                                href="https://www.google.com/maps?q=No.1,+Thimbirigasyaya+Road,+Colombo+05,+Sri+Lanka"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 hover:underline"
+                            >
+                                TechStore - Thimbirigasyaya
+                            </a>
+                            <br />
 
-        <h3 className="text-xl font-medium">Open Time</h3>
-        <p className="text-gray-600">Weekdays 10 AM to 7 PM</p>
-        <p className="text-gray-600">Friday 10 AM to 12 PM & 2 PM to 7 PM</p>
-        <p className="text-gray-600">Saturday 10 AM to 6 PM</p><br />
 
-        <h3 className="text-xl font-medium">Call Us On</h3>
-        <p className="text-gray-600">0705 297 129</p>
-        <p className="text-gray-600">support@techStore.lk</p>
-        
-      </div>
-    </div>
+                            <a
+                                href="https://www.google.com/maps?q=No.1,+Thimbirigasyaya+Road,+Colombo+05,+Sri+Lanka"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 hover:underline"
+                            >
+                                No.1, Thimbirigasyaya Road, Colombo 05, Sri Lanka
+                            </a><br></br><br></br>
 
-    {/* Right Section - Map */}
-    <div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.54602898715!2d79.8238932632813!3d6.927078427469229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25966370b7c03%3A0xb1c4a38c97c46b34!2sColombo!5e0!3m2!1sen!2slk!4v1675625192712!5m2!1sen!2slk"
-        width="100%"
-        height="400"  
-        style={{ border: 0, borderRadius: '8px' }}  
-        allowFullScreen=""
-        loading="lazy"
-        title="Google Maps"
-      ></iframe>
-    </div>
-  </div>
-</div>
+                            <h3 className="text-xl font-medium">Open Time</h3>
+                            <p className="text-gray-600">Weekdays 10 AM to 7 PM</p>
+                            <p className="text-gray-600">Friday 10 AM to 12 PM & 2 PM to 7 PM</p>
+                            <p className="text-gray-600">Saturday 10 AM to 6 PM</p><br />
+
+                            <h3 className="text-xl font-medium">Call Us On</h3>
+                            <p className="text-gray-600">0705 297 129</p>
+                            <p className="text-gray-600">support@techStore.lk</p>
+
+                        </div>
+                    </div>
+
+                    {/* Right Section - Map */}
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.54602898715!2d79.8238932632813!3d6.927078427469229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25966370b7c03%3A0xb1c4a38c97c46b34!2sColombo!5e0!3m2!1sen!2slk!4v1675625192712!5m2!1sen!2slk"
+                            width="100%"
+                            height="400"
+                            style={{ border: 0, borderRadius: '8px' }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            title="Google Maps"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -254,6 +258,9 @@ const ContactUs = () => {
             </div>
 
         </div>
+
+        <Footer />
+        </>
     );
 };
 
