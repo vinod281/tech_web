@@ -23,7 +23,7 @@ export default function AddProduct() {
 
   };
 
-  
+
 
   const [images, setImages] = useState([]);
 
@@ -167,26 +167,26 @@ export default function AddProduct() {
 
                 <div className="mt-2">
 
-                    <label htmlFor="price" className="block font-medium text-gray-900 text-sm/6">
-                      Price Rs:
-                    </label>
+                  <label htmlFor="price" className="block font-medium text-gray-900 text-sm/6">
+                    Price Rs:
+                  </label>
 
 
-                    <div className="mt-2">
-                      <input
-                        id="price"
-                        name="price"
-                        type="number"
-                        required
-                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
-                        onChange={(e) => setProduct((prev) => ({ ...prev, price: e.target.value }))}
-                        placeholder='Enter your product price'
-                      />
-                    </div>
-
-
-
+                  <div className="mt-2">
+                    <input
+                      id="price"
+                      name="price"
+                      type="number"
+                      required
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                      onChange={(e) => setProduct((prev) => ({ ...prev, price: e.target.value }))}
+                      placeholder='Enter your product price'
+                    />
                   </div>
+
+
+
+                </div>
 
 
 
@@ -220,7 +220,7 @@ export default function AddProduct() {
 
                 </div>
 
-                <div className='mb-6'>
+                <div className='mb-6 '>
 
                   <label htmlFor="title" className="block font-medium text-gray-900 text-sm/6">
                     Images
@@ -303,14 +303,14 @@ export default function AddProduct() {
 
                   </div>
 
-                  
+
 
 
 
                 </div>
 
 
-                
+
 
 
                 <div className='flex justify-end gap-5 mt-10'>
@@ -348,54 +348,54 @@ export default function AddProduct() {
         </div>
 
         <div>
-        <div className="flex flex-wrap items-center justify-between mt-6 mb-6">
-          <div className="relative w-64 p-4 transition-transform duration-300 border rounded-lg hover:scale-105">
-            <img
-              src={product.imageUrl[product.imageUrl.length - 1]}
-              alt={product.name}
-              className="object-cover w-full h-48 rounded-md"
-              onError={(e)=> e.target.src ="https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="}
-            />
-            <h3 className="mt-4 text-lg font-semibold">{product.name}</h3>
-            <div className="flex flex-wrap items-center mt-2">
-              <div className="flex text-yellow-400">
-                {Array.from({ length: 5 }, (_, index) => (
-                  <svg
-                    key={index}
-                    xmlns="http://www.w3.org/2000/svg"
-                    className={`h-5 w-5 ${index < product.rating ? "text-yellow-400" : "text-gray-300"}`}
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.262 3.89a1 1 0 00.95.69h4.1c.969 0 1.371 1.24.588 1.81l-3.32 2.415a1 1 0 00-.364 1.118l1.262 3.89c.3.921-.755 1.688-1.54 1.118L10 13.011l-3.32 2.415c-.784.57-1.838-.197-1.54-1.118l1.262-3.89a1 1 0 00-.364-1.118L2.718 9.317c-.783-.57-.38-1.81.588-1.81h4.1a1 1 0 00.95-.69l1.262-3.89z" />
-                  </svg>
-                ))}
+          <div className="flex flex-wrap items-center justify-between mt-6 mb-6">
+            <div className="relative w-64 p-4 transition-transform duration-300 border rounded-lg hover:scale-105">
+              <img
+                src={product.imageUrl[product.imageUrl.length - 1]}
+                alt="product image.."
+                className="object-cover w-full h-48 rounded-md"
+                onError={(e) => e.target.src = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="}
+              />
+              <h3 className="mt-4 text-lg font-semibold">{product.name}</h3>
+              <div className="flex flex-wrap items-center mt-2">
+                <div className="flex text-yellow-400">
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <svg
+                      key={index}
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={`h-5 w-5 ${index < product.rating ? "text-yellow-400" : "text-gray-300"}`}
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.262 3.89a1 1 0 00.95.69h4.1c.969 0 1.371 1.24.588 1.81l-3.32 2.415a1 1 0 00-.364 1.118l1.262 3.89c.3.921-.755 1.688-1.54 1.118L10 13.011l-3.32 2.415c-.784.57-1.838-.197-1.54-1.118l1.262-3.89a1 1 0 00-.364-1.118L2.718 9.317c-.783-.57-.38-1.81.588-1.81h4.1a1 1 0 00.95-.69l1.262-3.89z" />
+                    </svg>
+                  ))}
+                </div>
+                <span className="ml-2 text-sm text-gray-500">{product.reviews}</span>
               </div>
-              <span className="ml-2 text-sm text-gray-500">{product.reviews}</span>
+              <p className="mt-2 text-lg font-semibold">RS: {product.price}</p>
+
+              {product.stock ? (
+                <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 rounded-md cursor-pointer bg-green-50 ring-1 ring-inset ring-green-600/20">
+                  Product available
+                </span>
+              ) : (
+                <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-red-700 rounded-md cursor-not-allowed bg-red-50 ring-1 ring-inset ring-red-600/20">
+                  Out of stock
+                </span>
+              )}
+
+              {/* Badge */}
+              {product.offer && (
+                <div className="absolute px-2 py-1 text-xs font-bold text-white transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full right-12 top-8">
+                  {product.offer}% Off
+                </div>
+              )}
             </div>
-            <p className="mt-2 text-lg font-semibold">RS: {product.price}</p>
-
-            {product.stock ? (
-              <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 rounded-md cursor-pointer bg-green-50 ring-1 ring-inset ring-green-600/20">
-                Product available
-              </span>
-            ) : (
-              <span className="inline-flex items-center px-2 py-1 text-xs font-medium text-red-700 rounded-md cursor-not-allowed bg-red-50 ring-1 ring-inset ring-red-600/20">
-                Out of stock
-              </span>
-            )}
-
-            {/* Badge */}
-            {product.offer && (
-              <div className="absolute px-2 py-1 text-xs font-bold text-white transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full right-12 top-8">
-                {product.offer}% Off
-              </div>
-            )}
           </div>
         </div>
-        </div>
 
-        
+
       </div>
 
 
