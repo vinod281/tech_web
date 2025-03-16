@@ -28,8 +28,6 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/payment" element={<Payment/>} /> 
         <Route path='/account' element={<Account/>} />
-
-
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/catagories" element={<Catagories />} /> 
 
