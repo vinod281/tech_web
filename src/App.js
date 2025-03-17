@@ -13,6 +13,7 @@ import ContactUs from './pages/ContactUs/ContactUs';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Account from './pages/Account/MyAccount';
+import AddPTest from './pages/Account/AddPTest';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         <Route path='/account' element={<Account/>} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/catagories" element={<Catagories />} /> 
-
+        <Route path='/test' element={<AddPTest/>} />
 
       </Routes>
 
