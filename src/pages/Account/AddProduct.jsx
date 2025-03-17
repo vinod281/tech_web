@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-
+import axios from "axios";
 
 
 export default function AddProduct() {
 
 
   const [product, setProduct] = useState(() => ({
-    id: 1,
+    id: 0,
     name: "Enter Product Title",
     imageUrl:
       [""],
@@ -15,6 +15,7 @@ export default function AddProduct() {
     rating: 5,
     stock: false,
     offer: null,
+    
   }));
 
   const handleStockChange = (e) => {
@@ -23,7 +24,7 @@ export default function AddProduct() {
 
   };
 
-
+  
 
   const [images, setImages] = useState([]);
 
@@ -37,10 +38,51 @@ export default function AddProduct() {
       ...prev,
       imageUrl: [...prev.imageUrl, ...newImageUrls], // Append new image URLs
     }));
+
+    
   };
 
 
-  console.log(product.imageUrl)
+  const handleSubmit =async (e) => {
+    e.preventDefault();
+    console.log('Form Submitted',product);
+
+    // on submit action with API
+    const formData = new FormData();
+    formData.append('title', product.name);
+    formData.append('price', product.price);
+    formData.append('offer',product.offer);
+    formData.append('stock',product.stock);
+    formData.append('rating',product.rating);
+    formData.append('category',product.category);
+    formData.append('image',product.imageUrl);
+    formData.append('review',product.reviews);
+
+    images.forEach((image,index) => {
+      formData.append('images', image);
+    });
+
+    try {
+      const response = await axios.post(
+        "https://localhost:7173/api/Product/AddProduct",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("Product uploaded successfully:", response.data);
+      
+    } catch (error) {
+      console.error("Error uploading product:", error);
+      
+    }
+    
+    
+    //window.location.reload();
+  }
 
 
   return (
@@ -53,7 +95,7 @@ export default function AddProduct() {
 
 
 
-          <form action="#" method="POST" className="space-y-6">
+          <form action="#" method="POST" className="space-y-6" onSubmit={handleSubmit}>
 
             <div className='flex flex-wrap justify-center gap-20'>
 
@@ -397,8 +439,6 @@ export default function AddProduct() {
 
 
       </div>
-
-
 
 
 
