@@ -8,14 +8,13 @@ export default function AddProduct() {
   const [product, setProduct] = useState(() => ({
     id: 0,
     name: "Enter Product Title",
-    imageUrl:
-      [""],
+    imageUrl: [""],
     price: null,
     reviews: "0 reviews",
     rating: 5,
     stock: false,
     offer: null,
-    
+
   }));
 
   const handleStockChange = (e) => {
@@ -24,7 +23,7 @@ export default function AddProduct() {
 
   };
 
-  
+
 
   const [images, setImages] = useState([]);
 
@@ -39,26 +38,26 @@ export default function AddProduct() {
       imageUrl: [...prev.imageUrl, ...newImageUrls], // Append new image URLs
     }));
 
-    
+
   };
 
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Submitted',product);
+    console.log('Form Submitted', product);
 
     // on submit action with API
     const formData = new FormData();
     formData.append('title', product.name);
     formData.append('price', product.price);
-    formData.append('offer',product.offer);
-    formData.append('stock',product.stock);
-    formData.append('rating',product.rating);
-    formData.append('category',product.category);
-    formData.append('image',product.imageUrl);
-    formData.append('review',product.reviews);
+    formData.append('offer', product.offer);
+    formData.append('stock', product.stock);
+    formData.append('rating', product.rating);
+    formData.append('category', product.category);
+    formData.append('image', product.imageUrl);
+    formData.append('review', product.reviews);
 
-    images.forEach((image,index) => {
+    images.forEach((image, index) => {
       formData.append('images', image);
     });
 
@@ -74,13 +73,14 @@ export default function AddProduct() {
       );
 
       console.log("Product uploaded successfully:", response.data);
-      
+      alert("Your product added.")
+
     } catch (error) {
       console.error("Error uploading product:", error);
-      
+
     }
-    
-    
+
+
     //window.location.reload();
   }
 
