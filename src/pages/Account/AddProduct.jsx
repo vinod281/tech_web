@@ -8,14 +8,14 @@ export default function AddProduct() {
   const [product, setProduct] = useState(() => ({
     id: 0,
     name: "Enter Product Title",
-    imageUrl:
-      [""],
+    imageUrl: [],
     price: null,
     reviews: "0 reviews",
     rating: 5,
     stock: false,
     offer: null,
-    
+    images: [],
+
   }));
 
   const handleStockChange = (e) => {
@@ -24,7 +24,7 @@ export default function AddProduct() {
 
   };
 
-  
+
 
   const [images, setImages] = useState([]);
 
@@ -39,26 +39,34 @@ export default function AddProduct() {
       imageUrl: [...prev.imageUrl, ...newImageUrls], // Append new image URLs
     }));
 
-    
+    // add images names to product.images
+    const newImages = files.map((file) => file.name);
+    setProduct((prev) => ({
+      ...prev,
+      images: [...prev.images, ...newImages
+      ],
+    }));
+
+
   };
 
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Submitted',product);
+    console.log('Form Submitted', product);
 
     // on submit action with API
     const formData = new FormData();
     formData.append('title', product.name);
     formData.append('price', product.price);
-    formData.append('offer',product.offer);
-    formData.append('stock',product.stock);
-    formData.append('rating',product.rating);
-    formData.append('category',product.category);
-    formData.append('image',product.imageUrl);
-    formData.append('review',product.reviews);
+    formData.append('offer', product.offer);
+    formData.append('stock', product.stock);
+    formData.append('rating', product.rating);
+    formData.append('category', product.category);
+    formData.append('image', product.images);
+    formData.append('review', product.reviews);
 
-    images.forEach((image,index) => {
+    images.forEach((image, index) => {
       formData.append('images', image);
     });
 
@@ -74,13 +82,14 @@ export default function AddProduct() {
       );
 
       console.log("Product uploaded successfully:", response.data);
-      
+      alert("Your product added.")
+
     } catch (error) {
       console.error("Error uploading product:", error);
-      
+
     }
-    
-    
+
+
     //window.location.reload();
   }
 
@@ -397,6 +406,7 @@ export default function AddProduct() {
                 alt="product image.."
                 className="object-cover w-full h-48 rounded-md"
                 onError={(e) => e.target.src = "https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM="}
+                
               />
               <h3 className="mt-4 text-lg font-semibold">{product.name}</h3>
               <div className="flex flex-wrap items-center mt-2">

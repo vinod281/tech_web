@@ -39,21 +39,21 @@ const MyAccount = () => {
                             </button>
                             <button
                                 onClick={() => setActiveTab('custOrder')}
-                                className={`py-2 px-4 font-semibold ${activeTab === 'custOrder' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+                                className={`py-2 px-4 font-semibold ${activeTab === 'custOrder' ? 'border-b-2 border-red-500 text-red-500' : 'text-gray-500'}`}
                             >
                                 Customer Orders
                             </button>
 
                             <button
                                 onClick={() => setActiveTab('addProduct')}
-                                className={`py-2 px-4 font-semibold ${activeTab === 'addProduct' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+                                className={`py-2 px-4 font-semibold ${activeTab === 'addProduct' ? 'border-b-2 border-red-500 text-red-500' : 'text-gray-500'}`}
                             >
                                 Add Product
                             </button>
                             
                             <button
                                 onClick={() => setActiveTab('updateProduct')}
-                                className={`py-2 px-4 font-semibold ${activeTab === 'updateProduct' ? 'border-b-2 border-blue-500 text-blue-500' : 'text-gray-500'}`}
+                                className={`py-2 px-4 font-semibold ${activeTab === 'updateProduct' ? 'border-b-2 border-red-500 text-red-500' : 'text-gray-500'}`}
                             >
                                 Update Product
                             </button>
