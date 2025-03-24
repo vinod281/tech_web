@@ -54,7 +54,7 @@ export default function AddProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form Submitted', product);
-
+    
     // on submit action with API
     const formData = new FormData();
     formData.append('title', product.name);
@@ -80,8 +80,29 @@ export default function AddProduct() {
           },
         }
       );
+      
+
+      for(let i = 0; i < product.images.length; i++){
+        const imagesForm = {
+          productID: response.data.product.product_ID,
+          imageName: product.images[i],
+        }
+        
+        const response2 = await axios.post(
+          "https://localhost:7173/api/ProductImages/sentImages",
+          imagesForm,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        
+        console.log("Product_Images uploaded successfully:", response2.data);
+      }
 
       console.log("Product uploaded successfully:", response.data);
+      
       alert("Your product added.")
 
     } catch (error) {
