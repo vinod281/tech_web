@@ -82,6 +82,9 @@ export default function AddProduct() {
       );
       
 
+
+
+      
       for(let i = 0; i < product.images.length; i++){
         const imagesForm = {
           productID: response.data.product.product_ID,
