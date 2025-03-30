@@ -125,11 +125,10 @@ export default function Cart({ open, setOpen }) {
                                                 RS{' '}
                                                 {products
                                                     .reduce((total, item) => {
-                                                        
                                                         const price = item.price
-                                                            ? parseFloat(item.price.replace(/[^0-9]/g, ''))
-                                                            : 0; 
-                                                        return total + price * item.quantity;
+                                                            ? parseFloat(String(item.price).replace(/[^0-9]/g, '')) // Safely convert to string
+                                                            : 0;
+                                                        return total + price * (item.quantity || 1); // Default quantity to 1 if undefined
                                                     }, 0)
                                                     .toFixed(2)}
                                             </p>

@@ -3,11 +3,12 @@ import Notification from '../Notification/Notification';
 import { useState } from 'react';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
+import { useEffect } from 'react';
 
 
 
 
-const products = [
+const products1 = [
     {
         id: 1,
         name: "Samsung Buds (clone)",
@@ -94,6 +95,17 @@ const products = [
 const ProductCards = () => {
 
     const [notificationMessage, setNotificationMessage] = useState(null);
+    const [products, setProducts] = useState([]);
+
+
+    // Fetching products from an API
+     useEffect(() => {
+         fetch("https://localhost:7173/api/ProductImages/ProductsWithImages")
+             .then((res) => res.json())
+             .then((data) => setProducts(data));
+     }, []);
+
+     console.log(products);
 
     // Function to handle adding a product to the cart
     const addToCart = (product) => {
@@ -176,7 +188,7 @@ const ProductCards = () => {
 
                 {product.offer && (
                     <div className="absolute px-2 py-1 text-xs font-bold text-white transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full right-12 top-8 ">
-                        {product.offer}
+                        {product.offer}% Off
                     </div>
                 )}
 
