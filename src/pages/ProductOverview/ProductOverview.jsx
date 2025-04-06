@@ -1,15 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import RelatedItems from "../../components/ProductCards/RelatedItems";
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
+import axios from "axios";
 
-const App = () => {
 
+
+const ProductView = (product_ID) => {
+
+  
   const [mainImage, setMainImage] = useState("https://image.made-in-china.com/2f0j00kApVwBMhkWzi/Tws-F9-5-Wireless-Earbud-Stereo-Noise-Reduction-Headphone-Touch-Control-Earphone-Power-Bank-Headset-Support-All-Phone-F9-Earbuds.webp"); // Default main image
-  const [selectedColor, setSelectedColor] = useState(""); // For tracking the selected color
+  const [product, setProduct] = useState([]);
+  const [productImages, setProductImages] = useState([]); 
+
+
+
+  useEffect(() => {
+    if (!product_ID) return; 
+
+    axios.get(`https://localhost:7173/api/Product/${product_ID.product_ID}`)
+        .then((response) => {
+            setProduct(response.data);
+            
+        })
+        .catch((error) => {
+            console.error("Error fetching product:", error);
+            
+        });
+
+    axios.get(`https://localhost:7173/api/ProductImages/${product_ID.product_ID}`)
+        .then((response) => {
+            setProductImages(response.data);
+            console.log(response.data);
+            
+        })
+        .catch((error) => {
+            console.error("Error fetching product:", error);
+            
+            
+        });
+}, []);
+
+
+  console.log(productImages[0]?.imageName);
 
   // Function to handle thumbnail click to change the main image
   const handleThumbnailClick = (image) => {
@@ -20,6 +56,8 @@ const App = () => {
   const handleColorSelect = (colorImage) => {
     setMainImage(colorImage); // Change main image to selected color's image
   };
+
+  
 
   return (
 
@@ -52,7 +90,7 @@ const App = () => {
               {/* Main Product Image */}
               <div className="overflow-hidden rounded-lg shadow-md">
                 <img
-                  src={mainImage} // Dynamically change the image based on the selected thumbnail/color
+                  src={productImages[0]?.imageName} // Dynamically change the image based on the selected thumbnail/color
                   alt="Main image"
                   className="h-[600] w-[full]   object-cover transition-transform duration-300 hover:scale-105"
                 />
@@ -64,11 +102,11 @@ const App = () => {
               {/* Product Info */}
               <div>
                 <h1 className="text-2xl font-extrabold text-gray-800">
-                  F9 Wireless Earphones Bluetooth TWS Noise Reduction Headphone
+                  {product.title}
                 </h1>
-                <p className="mt-2 text-2xl font-semibold text-red-500">LKR 2,450.07</p>
-                <p className="text-gray-500 line-through text-m">LKR 5,000.00</p>
-                <p className="font-medium text-green-600 text-m">Save LKR 2,550.00</p>
+                <p className="mt-2 text-2xl font-semibold text-red-500">LKR {product.price}.00</p>
+                <p className="text-gray-500 line-through text-m">LKR {(product.price*product.offer/100)+product.price}.00</p>
+                <p className="font-medium text-green-600 text-m">Save LKR {product.price*product.offer/100}</p>
 
                 {/* Description */}
                 <p className="mt-2 leading-relaxed text-gray-800">
@@ -261,5 +299,5 @@ const App = () => {
   );
 };
 
-export default App;
+export default ProductView;
 
