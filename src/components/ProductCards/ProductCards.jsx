@@ -211,10 +211,6 @@ const ProductCards = () => {
 
 
 
-
-
-
-
             </div>
         );
     };

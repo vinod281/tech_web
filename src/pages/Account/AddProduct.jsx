@@ -15,6 +15,10 @@ export default function AddProduct() {
     stock: false,
     offer: null,
     images: [],
+    specifications: "Enter product specifications",
+    description: "Enter product description",
+    category: "Select Product Category",
+    subCategory: "Select Sub Category",
 
   }));
 
@@ -65,6 +69,8 @@ export default function AddProduct() {
     formData.append('category', product.category);
     formData.append('image', product.images);
     formData.append('review', product.reviews);
+    formData.append('description', product.description);
+    formData.append('specifications', product.specifications);
 
     images.forEach((image, index) => {
       formData.append('images', image);
@@ -172,6 +178,7 @@ export default function AddProduct() {
                         name="category"
                         required
                         className="block h-9 w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                        onChange={(e) => setProduct((prev) => ({ ...prev, category: e.target.value }))}
                       >
                         <option>Select Product Category</option>
                         <option>Headphone</option>
@@ -197,6 +204,7 @@ export default function AddProduct() {
                         name="subCategory"
                         required
                         className="block h-9 w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
+                        onChange={(e) => setProduct((prev) => ({ ...prev, subCategory: e.target.value }))}
                       >
                         <option>Select Sub Category</option>
                         <option>Headphone</option>
@@ -233,6 +241,7 @@ export default function AddProduct() {
                       autoComplete="name"
                       className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
                       placeholder='Enter your product description here'
+                      onChange={(e) => setProduct((prev) => ({ ...prev, description: e.target.value }))}
 
                     />
                   </div>
@@ -289,6 +298,7 @@ export default function AddProduct() {
                       autoComplete="name"
                       className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-gray-300 sm:text-sm/6"
                       placeholder='Enter your product specifications here'
+                      onChange={(e) => setProduct((prev) => ({ ...prev, specifications: e.target.value }))}
 
                     />
                   </div>
