@@ -1,15 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import RelatedItems from "../../components/ProductCards/RelatedItems";
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
+import axios from "axios";
+import parse from "html-react-parser";
 
-const App = () => {
 
-  const [mainImage, setMainImage] = useState("https://image.made-in-china.com/2f0j00kApVwBMhkWzi/Tws-F9-5-Wireless-Earbud-Stereo-Noise-Reduction-Headphone-Touch-Control-Earphone-Power-Bank-Headset-Support-All-Phone-F9-Earbuds.webp"); // Default main image
-  const [selectedColor, setSelectedColor] = useState(""); // For tracking the selected color
+
+const ProductView = (product_ID) => {
+
+
+  const [mainImage, setMainImage] = useState(null); // Default main image
+  const [product, setProduct] = useState([]);
+  const [productImages, setProductImages] = useState([]);
+
+
+
+  useEffect(() => {
+    if (!product_ID) return;
+
+    axios.get(`https://localhost:7173/api/Product/${product_ID.product_ID}`)
+      .then((response) => {
+        setProduct(response.data);
+
+      })
+      .catch((error) => {
+        console.error("Error fetching product:", error);
+
+      });
+
+    axios.get(`https://localhost:7173/api/ProductImages/${product_ID.product_ID}`)
+      .then((response) => {
+        setProductImages(response.data);
+        console.log(response.data);
+        setMainImage(response.data[0]?.imageName); // Set the first image as the main image
+
+      })
+      .catch((error) => {
+        console.error("Error fetching product:", error);
+
+
+      });
+  }, []);
+
+
+  console.log(productImages[0]?.imageName);
 
   // Function to handle thumbnail click to change the main image
   const handleThumbnailClick = (image) => {
@@ -20,6 +58,8 @@ const App = () => {
   const handleColorSelect = (colorImage) => {
     setMainImage(colorImage); // Change main image to selected color's image
   };
+
+
 
   return (
 
@@ -34,16 +74,16 @@ const App = () => {
             <div className="flex space-x-6">
               {/* Thumbnail Images */}
               <div className="flex flex-col space-y-4">
-                {[1, 2, 3, 4].map((item) => (
+                {productImages.map((item, index) => (
                   <div
-                    key={item}
+                    key={index} // Use the index as a fallback if no unique property is available
                     className="overflow-hidden transition-all duration-300 border-2 border-gray-200 rounded-lg hover:border-red-500"
-                    onClick={() => handleThumbnailClick(`/images/thumb${item}.jpg`)} // Update image when clicked
+                    onClick={() => handleThumbnailClick(item.imageName)} // Update image when clicked
                   >
                     <img
-                      src={`/images/thumb${item}.jpg`} // Thumbnail images
-                      alt={`Thumbnail ${item}`}
-                      className="object-cover w-20 h-20 cursor-pointer lg:w-15 lg:h-15" // Adjusted size for better alignment
+                      src={item.imageName || "https://via.placeholder.com/150"} // Use the image URL or a placeholder
+                      alt={`Thumbnail ${index}`}
+                      className="object-cover w-20 h-20 cursor-pointer lg:w-15 lg:h-15"
                     />
                   </div>
                 ))}
@@ -64,15 +104,15 @@ const App = () => {
               {/* Product Info */}
               <div>
                 <h1 className="text-2xl font-extrabold text-gray-800">
-                  F9 Wireless Earphones Bluetooth TWS Noise Reduction Headphone
+                  {product.title}
                 </h1>
-                <p className="mt-2 text-2xl font-semibold text-red-500">LKR 2,450.07</p>
-                <p className="text-gray-500 line-through text-m">LKR 5,000.00</p>
-                <p className="font-medium text-green-600 text-m">Save LKR 2,550.00</p>
+                <p className="mt-2 text-2xl font-semibold text-red-500">LKR {product.price-(product.price * product.offer / 100)}.00</p>
+                <p className="text-gray-500 line-through text-m">LKR {product.price}.00</p>
+                <p className="font-medium text-green-600 text-m">Save LKR {product.price * product.offer / 100}</p>
 
                 {/* Description */}
                 <p className="mt-2 leading-relaxed text-gray-800">
-                  5+ pieces, extra 2% off Tax excluded, add at checkout if applicable.
+                  {product.description}
                 </p>
 
                 {/* Color Options */}
@@ -139,40 +179,12 @@ const App = () => {
         <div className="py-8">
           <div className="container px-4 mx-auto">
 
-            <div className="p-6 bg-white rounded-lg ">
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex flex-col items-start sm:flex-row sm:items-center">
-                  <span className="w-full font-medium text-gray-800 sm:w-32">Bluetooth version:</span>
-                  <span className="text-gray-600">
-                    Bluetooth 5.0 offers improved range, speed, and stability, making it perfect for uninterrupted wireless listening.
-                  </span>
-                </li>
-                <li className="flex flex-col items-start sm:flex-row sm:items-center">
-                  <span className="w-full font-medium text-gray-800 sm:w-32">Battery life:</span>
-                  <span className="text-gray-600">
-                    Enjoy up to 10 hours of continuous music playback or talk time, ensuring you stay connected all day.
-                  </span>
-                </li>
-                <li className="flex flex-col items-start sm:flex-row sm:items-center">
-                  <span className="w-full font-medium text-gray-800 sm:w-32">Charging time:</span>
-                  <span className="text-gray-600">
-                    Fully charge your earbuds in just 2 hours, so you can get back to listening to your favorite music quickly.
-                  </span>
-                </li>
-                <li className="flex flex-col items-start sm:flex-row sm:items-center">
-                  <span className="w-full font-medium text-gray-800 sm:w-32">Weight:</span>
-                  <span className="text-gray-600">
-                    The earbuds weigh only 200g, making them lightweight and comfortable for extended use without fatigue.
-                  </span>
-                </li>
-                <li className="flex flex-col items-start sm:flex-row sm:items-center">
-                  <span className="w-full font-medium text-gray-800 sm:w-32">Compatibility:</span>
-                  <span className="text-gray-600">
-                    These earbuds are fully compatible with both Android and iOS devices, allowing you to seamlessly connect to smartphones, tablets, and laptops.
-                  </span>
-                </li>
-              </ul>
+            {/* // Product Specifications from database */}
+
+            <div className="prose max-w-none">
+              {parse(typeof product.specifications === "string" ? product.specifications : "")}
             </div>
+            
           </div>
         </div>
 
@@ -181,6 +193,7 @@ const App = () => {
         <Divider variant="middle" component="li">
           <Chip label="Customer Reviews" size="small" />
         </Divider>
+
         <div className="py-8 bg-white">
           <div className="container px-4 mx-auto">
 
@@ -261,5 +274,5 @@ const App = () => {
   );
 };
 
-export default App;
+export default ProductView;
 

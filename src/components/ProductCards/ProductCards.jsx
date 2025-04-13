@@ -4,6 +4,9 @@ import { useState } from 'react';
 import Divider from '@mui/material/Divider';
 import Chip from '@mui/material/Chip';
 import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+
+
 
 
 
@@ -93,6 +96,7 @@ const products1 = [
 ];
 
 const ProductCards = () => {
+    const navigate = useNavigate(); // Initialize navigate
 
     const [notificationMessage, setNotificationMessage] = useState(null);
     const [products, setProducts] = useState([]);
@@ -168,6 +172,8 @@ const ProductCards = () => {
                 </div>
                 <p className="mt-2 text-lg font-semibold">{product.price}.00</p>
 
+                <div className='flex flex-wrap'>
+
                 {product.stock ? (
                     <span
                         className="inline-flex items-center px-2 py-1 text-xs font-medium text-green-700 rounded-md cursor-pointer bg-green-50 ring-1 ring-inset ring-green-600/20"
@@ -181,6 +187,17 @@ const ProductCards = () => {
                     </span>
                 )}
 
+                    <span
+                        className="inline-flex items-center px-2 py-1 ml-auto text-xs font-medium text-blue-700 rounded-md cursor-pointer bg-blue-50 ring-1 ring-inset ring-blue-600/20"
+                        onClick={() => navigate(`/product-overview`, { state: { product_ID: product.id } })} // Navigate to Product Overview page with product ID
+                    >
+                        View Details
+                    </span>
+                    
+                </div>
+
+                
+
 
                 {/* Badge */}
 
@@ -191,10 +208,6 @@ const ProductCards = () => {
                         {product.offer}% Off
                     </div>
                 )}
-
-
-
-
 
 
 
