@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function Banner() {
     return (
         <>
@@ -10,6 +11,7 @@ export default function Banner() {
                             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                             Holiday Cheer is Calling!
                             </h1>
+                            
                             <p className="mt-4 text-xl text-gray-500">
                             This Christmas, our latest collection of mobile accessories is here to bring joy, style, and protection to your devices. Stay connected and celebrate the season with accessories designed to keep up with all your holiday adventures, no matter where the festivities take you.
                             </p>

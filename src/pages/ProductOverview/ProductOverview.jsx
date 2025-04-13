@@ -106,9 +106,9 @@ const ProductView = (product_ID) => {
                 <h1 className="text-2xl font-extrabold text-gray-800">
                   {product.title}
                 </h1>
-                <p className="mt-2 text-2xl font-semibold text-red-500">LKR {product.price-(product.price * product.offer / 100)}.00</p>
+                <p className="mt-2 text-2xl font-semibold text-red-500">LKR {product.price - (product.price * product.offer / 100)}.00</p>
                 <p className="text-gray-500 line-through text-m">LKR {product.price}.00</p>
-                <p className="font-medium text-green-600 text-m">Save LKR {product.price * product.offer / 100}</p>
+                <p className="font-medium text-green-600 text-m">Save LKR {product.price * product.offer / 100}.00</p>
 
                 {/* Description */}
                 <p className="mt-2 leading-relaxed text-gray-800">
@@ -117,29 +117,18 @@ const ProductView = (product_ID) => {
 
                 {/* Color Options */}
                 <div className="mt-6">
-                  <h3 className="mb-2 text-lg font-bold">Select Color:</h3>
-                  <div className="flex items-center space-x-4">
-                    {/* Example Colors */}
-                    {[
-                      { name: "White", img: "https://image.made-in-china.com/2f0j00BdzqtFRCSMbJ/2024-New-Tws-F9-Gamin-Earphones-in-Ear-Headphones-HiFi-Game-Wireless-Earbuds-Noise-Cancelling-Tws-Earphones-Headphones.jpg" },
-                      { name: "Black", img: "https://image.made-in-china.com/2f0j00kApVwBMhkWzi/Tws-F9-5-Wireless-Earbud-Stereo-Noise-Reduction-Headphone-Touch-Control-Earphone-Power-Bank-Headset-Support-All-Phone-F9-Earbuds.webp" },
+                  <div className="max-w-3xl p-4 mx-auto">
+                    <div className="p-3 mb-6 font-semibold text-center bg-gray-100 rounded">
+                      Discounted prices will be applied on checkout
+                    </div>
 
-                    ].map((color, index) => (
-                      <div
-                        key={index}
-                        className="p-2 transition-all border-2 border-gray-300 rounded-lg cursor-pointer group hover:border-red-500"
-                        onClick={() => handleColorSelect(color.img)} // Change image when color is selected
-                      >
-                        <img
-                          src={color.img}
-                          alt={color.name}
-                          className="object-cover w-20 h-20 rounded-md"
-                        />
-                        <p className="mt-1 text-sm font-medium text-center group-hover:text-red-500">
-                          {color.name}
-                        </p>
-                      </div>
-                    ))}
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+                      <div className="p-4 text-center border rounded">💵<br />Cash Price<br /><strong>Rs. {product.price - (product.price * product.offer / 100)}.00</strong></div>
+                      <div className="p-4 text-center border rounded">🏦<br />Bank Transfer<br /><strong>Rs. {product.price - (product.price * product.offer / 100)}.00</strong></div>
+                      <div className="p-4 text-center border rounded">💳<br />Visa / Mastercard<br /><strong>Rs. {product.price - (product.price * product.offer / 100)}.00</strong></div>
+                      <div className="p-4 text-center border rounded">🪪<br />American Express<br /><strong>Rs. {product.price - (product.price * product.offer / 100)}.00</strong></div>
+                      <div className="p-4 text-center border rounded">🛒<br />KOKO<br /><strong>Rs. {product.price - (product.price * product.offer / 100)}.00</strong></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -184,7 +173,7 @@ const ProductView = (product_ID) => {
             <div className="prose max-w-none">
               {parse(typeof product.specifications === "string" ? product.specifications : "")}
             </div>
-            
+
           </div>
         </div>
 

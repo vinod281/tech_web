@@ -172,7 +172,7 @@ const ProductCards = () => {
                 </div>
                 <p className="mt-2 text-lg font-semibold">{product.price}.00</p>
 
-                <div className='flex flex-wrap'>
+                <div className='flex flex-wrap gap-2'>
 
                 {product.stock ? (
                     <span
@@ -188,7 +188,7 @@ const ProductCards = () => {
                 )}
 
                     <span
-                        className="inline-flex items-center px-2 py-1 ml-auto text-xs font-medium text-blue-700 rounded-md cursor-pointer bg-blue-50 ring-1 ring-inset ring-blue-600/20"
+                        className="inline-flex items-center px-2 py-1 text-xs font-medium text-blue-700 rounded-md cursor-pointer bg-blue-50 ring-1 ring-inset ring-blue-600/20"
                         onClick={() => navigate(`/product-overview`, { state: { product_ID: product.id } })} // Navigate to Product Overview page with product ID
                     >
                         View Details

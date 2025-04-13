@@ -1,0 +1,10 @@
+{
+    "name": "tech_web",
+    "componentPath": "components",
+    "outDir": "./components",
+    "aliases": {
+      "@/components": "./components",
+      "@/lib": "./lib"
+    }
+  }
+  
